@@ -1,0 +1,135 @@
+@model PracticeViewModel
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="practice-shell"
+     data-source="@((int)Model.Source)"
+     data-category-id="@(Model.CategoryId?.ToString() ?? "")"
+     data-language-id="@Model.LanguageId"
+     data-home-url="/@Model.LanguageCode">
+
+    <div class="practice-head">
+        <a class="back-link" href="/@Model.LanguageCode">&larr; Ana sayfa</a>
+        <div class="practice-title">
+            <h1>@Model.Title</h1>
+            <p>@Model.Subtitle</p>
+        </div>
+        <div class="streak-pill" id="streakPill" title="Günlük seri">
+            <span class="streak-flame">🔥</span><span id="streakValue">-</span>
+        </div>
+    </div>
+
+    <!-- Tek ekranlik kart: cevirme animasyonu yok. -->
+    <section class="card" id="card" aria-live="polite">
+        <div class="card-loading" id="cardLoading">Kart yükleniyor...</div>
+
+        <div class="card-body" id="cardBody" hidden>
+            <span class="badge" id="categoryBadge"></span>
+
+            <h2 class="word" id="termText"></h2>
+            <p class="pronunciation" id="termRead"></p>
+
+            <button type="button" class="btn btn-outline btn-listen" id="listenButton">
+                <span aria-hidden="true">🔊</span> Dinle
+            </button>
+
+            @if (Model.IsTypingMode)
+            {
+                <!-- QUIZ ADIM 1: anlam gizli, kullanici yazar -->
+                <form class="answer-form" id="answerForm" autocomplete="off">
+                    <label class="sr-only" for="answerInput">Türkçe anlamı</label>
+                    <input type="text" id="answerInput" class="answer-input"
+                           placeholder="Türkçe anlamını yaz..." autocapitalize="off" autocorrect="off" />
+                    <button type="submit" class="btn btn-primary" id="checkButton">Kontrol Et</button>
+                </form>
+            }
+
+            <p class="feedback" id="feedback" hidden></p>
+
+            <!-- Arka yuz: kategori pratiginde bastan gorunur, quizde cevap sonrasi acilir -->
+            <div class="card-back" id="cardBack" hidden>
+                <div class="divider"><span>ARKA YÜZ (İPUCU &amp; ANLAM)</span></div>
+
+                <h3 class="meaning" id="meaning"></h3>
+
+                <div class="hint-box" id="hintBox" hidden>
+                    <span aria-hidden="true">💡</span>
+                    <span id="hintText"></span>
+                </div>
+
+                <!-- Ornek cumle(ler): kelimenin 1 ya da 2 ornegi olabilir, JS ile maddeler halinde doldurulur. -->
+                <ul class="example-list" id="exampleList" hidden></ul>
+            </div>
+
+            <!--
+                TELAFFUZ BÖLÜMÜ
+                Yalnizca kelime "Bilmediğim Kelimeler" listesindeyse gosterilir.
+                Quiz modunda: anlami dogru yazdiktan SONRA acilir ve basari sayacini isler.
+                Kategori pratiginde: sadece alistirma amaclidir, listeyi etkilemez.
+            -->
+            <div class="speak-box" id="speakBox" hidden>
+                <div class="divider"><span>TELAFFUZ</span></div>
+
+                <p class="speak-prompt" id="speakPrompt">Şimdi kelimeyi sesli söyle</p>
+
+                <button type="button" class="btn btn-primary btn-mic" id="micButton">
+                    <span aria-hidden="true">🎤</span> <span id="micLabel">Söyle</span>
+                </button>
+
+                <p class="speak-result" id="speakResult" hidden></p>
+
+                <div class="mastery-meter" id="masteryMeter" hidden>
+                    <span class="mastery-dots" id="masteryDots"></span>
+                    <span class="mastery-label" id="masteryLabel"></span>
+                </div>
+            </div>
+
+            @if (!Model.IsTypingMode)
+            {
+                <!-- KATEGORİ PRATİĞİ: zorluk butonlari. Sadece "Hiç Bilmiyorum" listeye ekler. -->
+                <div class="rate-buttons" id="rateButtons" hidden>
+                    <button type="button" class="btn btn-rate btn-rate-easy" data-difficulty="1">🟢 Kolay</button>
+                    <button type="button" class="btn btn-rate btn-rate-medium" data-difficulty="2">🟡 Orta</button>
+                    <button type="button" class="btn btn-rate btn-rate-hard" data-difficulty="3">🔴 Hiç Bilmiyorum</button>
+                </div>
+                <p class="help-text rate-help">Seçimin kaydedilir ve bir sonraki kart gelir.</p>
+            }
+
+            <button type="button" class="btn btn-primary btn-next" id="nextButton" hidden>Sonraki Kelime →</button>
+        </div>
+
+        <div class="card-finished" id="cardFinished" hidden>
+            <h2>🎉 Tebrikler!</h2>
+            <p id="finishedText">Bilmediğin kelime kalmadı.</p>
+            <a class="btn btn-primary" href="/@Model.LanguageCode">Ana sayfaya dön</a>
+        </div>
+    </section>
+</div>
+
+<!-- "Artık kolay mı?" penceresi: listeden düşürmenin tek otomatik yolu -->
+<div class="modal-backdrop" id="masteryModal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="masteryTitle">
+        <h2 id="masteryTitle">🎯 Artık kolay mı?</h2>
+        <p id="masteryModalText"></p>
+        <div class="modal-actions">
+            <button type="button" class="btn btn-primary" id="masteryYes">Evet, listeden çıkar</button>
+            <button type="button" class="btn btn-outline" id="masteryNo">Hayır, çalışmaya devam</button>
+        </div>
+    </div>
+</div>
+
+<!-- Kilometre tasi (5, 10, 15... gun) kutlama penceresi -->
+<div class="modal-backdrop" id="milestoneModal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="milestoneTitle">
+        <h2 id="milestoneTitle">🔥 Harika gidiyorsun!</h2>
+        <p id="milestoneText"></p>
+        <button type="button" class="btn btn-primary" id="milestoneClose">Devam et</button>
+    </div>
+</div>
+
+@Html.AntiForgeryToken()
+
+@section Scripts {
+    <script src="~/js/practice.js" asp-append-version="true"></script>
+}

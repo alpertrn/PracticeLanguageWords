@@ -1,0 +1,35 @@
+@model LoginViewModel
+@{
+    ViewData["Title"] = "Giriş Yap";
+    Layout = "_Layout";
+}
+
+<div class="form-card">
+    <h1>Giriş Yap</h1>
+    <p class="form-subtitle">Kaldığın yerden devam et</p>
+
+    <form method="post" action="/login">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="ReturnUrl" />
+
+        <div asp-validation-summary="All" class="validation-summary"></div>
+
+        <div class="field">
+            <label asp-for="Username"></label>
+            <input asp-for="Username" autocomplete="username" autofocus />
+            <span asp-validation-for="Username" class="field-error"></span>
+        </div>
+
+        <div class="field">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" type="password" autocomplete="current-password" />
+            <span asp-validation-for="Password" class="field-error"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Giriş Yap</button>
+    </form>
+
+    <p class="form-subtitle" style="margin-top:1rem;">
+        Hesabın yok mu? <a href="/register">Kayıt ol</a>
+    </p>
+</div>

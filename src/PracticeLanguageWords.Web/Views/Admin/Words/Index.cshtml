@@ -1,0 +1,95 @@
+@model PagedResult<WordAdminDto>
+@{
+    ViewData["Title"] = "Kelime Yönetimi";
+    ViewBag.ActiveTab = "words";
+    IReadOnlyList<CategoryAdminDto> categories = ViewBag.Categories ?? new List<CategoryAdminDto>();
+    IReadOnlyList<LanguageDto> languages = ViewBag.Languages ?? new List<LanguageDto>();
+    string? term = ViewBag.Term;
+    int? selectedCategoryId = ViewBag.CategoryId;
+    int? selectedLanguageId = ViewBag.LanguageId;
+}
+
+<partial name="_AdminTabs" />
+
+<div class="page-header">
+    <h1>Kelimeler <span class="help-text">(@Model.TotalCount kayıt)</span></h1>
+    <a class="btn btn-primary" href="/admin/words/create?categoryId=@(selectedCategoryId ?? 0)">+ Yeni Kelime</a>
+</div>
+
+<form method="get" action="/admin/words" class="toolbar">
+    <input type="search" name="term" value="@term" placeholder="Kelime ara (kelime / Türkçe anlam)" />
+    <select name="languageId">
+        <option value="">Tüm diller</option>
+        @foreach (var language in languages)
+        {
+            <option value="@language.Id" selected="@(selectedLanguageId == language.Id)">@language.Name</option>
+        }
+    </select>
+    <select name="categoryId">
+        <option value="">Tüm kategoriler</option>
+        @foreach (var category in categories)
+        {
+            <option value="@category.Id" selected="@(selectedCategoryId == category.Id)">@category.LanguageName · @category.Name</option>
+        }
+    </select>
+    <button type="submit" class="btn btn-outline">Filtrele</button>
+</form>
+
+@if (Model.Items.Count == 0)
+{
+    <div class="empty-state">Sonuç bulunamadı.</div>
+}
+else
+{
+    <div class="table-wrap">
+        <table class="responsive-table">
+            <thead>
+                <tr>
+                    <th>Kelime</th>
+                    <th>Türkçe</th>
+                    <th>Okunuş</th>
+                    <th>Dil / Kategori</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var word in Model.Items)
+                {
+                    <tr>
+                        <td data-label="Kelime"><strong>@word.TermText</strong></td>
+                        <td data-label="Türkçe">@word.MeaningText</td>
+                        <td data-label="Okunuş">@(word.TermRead ?? "-")</td>
+                        <td data-label="Kategori">@word.LanguageName · @word.CategoryName</td>
+                        <td data-label="">
+                            <div class="row-actions">
+                                <a class="btn btn-outline btn-sm" href="/admin/words/@word.Id/edit">Düzenle</a>
+                                <form method="post" action="/admin/words/@word.Id/delete" class="inline-form"
+                                      onsubmit="return confirm('@word.TermText silinsin mi? Bu kelime tüm kullanıcıların listelerinden de kaldırılacak.');">
+                                    @Html.AntiForgeryToken()
+                                    <button type="submit" class="btn btn-danger btn-sm">Sil</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    @if (Model.TotalPages > 1)
+    {
+        <div class="pagination">
+            @for (var pageNumber = 1; pageNumber <= Model.TotalPages; pageNumber++)
+            {
+                if (pageNumber == Model.Page)
+                {
+                    <span class="current">@pageNumber</span>
+                }
+                else
+                {
+                    <a href="/admin/words?term=@term&categoryId=@selectedCategoryId&languageId=@selectedLanguageId&page=@pageNumber">@pageNumber</a>
+                }
+            }
+        </div>
+    }
+}

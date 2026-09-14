@@ -1,0 +1,30 @@
+@model CategoryGroupEditDto
+@{
+    var isNew = Model.Id == 0;
+    ViewData["Title"] = isNew ? "Yeni Grup" : "Grup Düzenle";
+    var action = isNew ? "/admin/category-groups/create" : $"/admin/category-groups/{Model.Id}/edit";
+}
+
+<div class="form-card">
+    <h1>@ViewData["Title"]</h1>
+
+    <form method="post" action="@action">
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="Id" value="@Model.Id" />
+
+        <div asp-validation-summary="All" class="validation-summary"></div>
+
+        <div class="field">
+            <label for="Name">Grup Adı</label>
+            <input id="Name" name="Name" value="@Model.Name" maxlength="100" required autofocus />
+        </div>
+
+        <div class="field">
+            <label for="UiTemplate">Arayüz Şablonu</label>
+            <input id="UiTemplate" name="UiTemplate" value="@Model.UiTemplate" maxlength="50" placeholder="Flashcard" />
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Kaydet</button>
+        <a class="btn btn-ghost btn-block" href="/admin/category-groups" style="margin-top:.5rem;">Vazgeç</a>
+    </form>
+</div>

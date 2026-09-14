@@ -1,0 +1,921 @@
+/* ============================================================
+   PracticeLanguageWords - tek dosya stil sistemi
+   Mobil once (mobile-first) yazilmistir; buyuk ekranlar icin
+   min-width media query'leri ile genisler.
+   ============================================================ */
+
+:root {
+    --color-bg: #f4f6fb;
+    --color-surface: #ffffff;
+    --color-text: #1f2937;
+    --color-text-soft: #6b7280;
+    --color-primary: #4f46e5;
+    --color-primary-dark: #4338ca;
+    --color-primary-soft: #eef2ff;
+    --color-success: #16a34a;
+    --color-success-soft: #dcfce7;
+    --color-danger: #dc2626;
+    --color-danger-soft: #fee2e2;
+    --color-warning: #b45309;
+    --color-warning-soft: #fffbeb;
+    --color-border: #e5e7eb;
+    --radius-sm: 10px;
+    --radius-md: 14px;
+    --radius-lg: 22px;
+    --shadow-sm: 0 1px 2px rgba(15, 23, 42, .06);
+    --shadow-md: 0 8px 24px rgba(15, 23, 42, .08);
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+/* KRITIK: [hidden] korumasi.
+   Tarayicinin varsayilan kurali [hidden] { display: none } UA stil sayfasindadir ve
+   yazar stilleri onu her zaman yener. Bu dosyada .modal-backdrop (flex), .rate-buttons
+   (grid), .example-list (flex), .btn (inline-flex), .feedback (grid) gibi bilesenler
+   display tanimladigi icin, HTML'de hidden isaretli olsalar bile ekranda gorunur
+   kaliyorlardi (ornegin "Artık kolay mı?" penceresi sayfa acilir acilmaz cikiyordu).
+   Asagidaki tek kural bu sinifin tamamini kapatir; yeni bir bilesen eklendiginde de
+   ayni tuzaga dusulmez. */
+[hidden] { display: none !important; }
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+}
+
+h1, h2, h3 { margin: 0 0 .5rem; line-height: 1.25; }
+
+a { color: var(--color-primary); }
+
+.sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ---------- Ust bar ---------- */
+
+.topbar {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+.topbar-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: .75rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
+    flex-wrap: wrap;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 700;
+}
+
+.brand-mark {
+    background: var(--color-primary);
+    color: #fff;
+    border-radius: 8px;
+    padding: .25rem .5rem;
+    font-size: .8rem;
+    letter-spacing: .04em;
+}
+
+.brand-text { font-size: .95rem; }
+
+@media (max-width: 420px) {
+    .brand-text { display: none; }
+}
+
+.topbar-nav {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+}
+
+.nav-link { text-decoration: none; font-size: .9rem; font-weight: 600; }
+.nav-user { color: var(--color-text-soft); font-size: .9rem; }
+.inline-form { display: inline; margin: 0; }
+
+/* ---------- Sayfa kabugu ---------- */
+
+.page {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 1.25rem 1rem 3rem;
+}
+
+.alert {
+    border-radius: var(--radius-sm);
+    padding: .75rem 1rem;
+    margin-bottom: 1rem;
+    font-size: .95rem;
+}
+
+.alert-success { background: var(--color-success-soft); color: #14532d; }
+.alert-error { background: var(--color-danger-soft); color: #7f1d1d; }
+.alert-info { background: var(--color-primary-soft); color: #312e81; }
+
+/* ---------- Butonlar ---------- */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+    padding: .7rem 1.1rem;
+    font-family: inherit;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background .15s ease, border-color .15s ease, transform .05s ease;
+}
+
+.btn:active { transform: translateY(1px); }
+.btn:disabled { opacity: .55; cursor: not-allowed; }
+
+.btn-primary { background: var(--color-primary); color: #fff; }
+.btn-primary:hover:not(:disabled) { background: var(--color-primary-dark); }
+
+.btn-outline {
+    background: var(--color-surface);
+    border-color: var(--color-border);
+    color: var(--color-text);
+}
+
+.btn-outline:hover:not(:disabled) { border-color: var(--color-primary); color: var(--color-primary); }
+
+.btn-ghost { background: transparent; color: var(--color-text-soft); }
+.btn-ghost:hover { color: var(--color-text); }
+
+.btn-danger { background: var(--color-danger); color: #fff; }
+.btn-sm { padding: .4rem .7rem; font-size: .85rem; }
+.btn-block { width: 100%; }
+
+.link-button {
+    background: none;
+    border: 0;
+    padding: 0;
+    color: var(--color-primary);
+    font: inherit;
+    font-size: .85rem;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* ---------- Formlar ---------- */
+
+.form-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: 1.75rem 1.5rem;
+    max-width: 420px;
+    margin: 2rem auto;
+}
+
+.form-card h1 { font-size: 1.4rem; text-align: center; }
+.form-card .form-subtitle { text-align: center; color: var(--color-text-soft); margin-top: 0; font-size: .9rem; }
+
+.field { margin-bottom: 1rem; }
+.field label { display: block; font-size: .85rem; font-weight: 600; margin-bottom: .35rem; }
+
+.field input,
+.field select,
+.field textarea {
+    width: 100%;
+    padding: .7rem .8rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 1rem;
+    background: #fff;
+    color: var(--color-text);
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+    outline: 2px solid var(--color-primary-soft);
+    border-color: var(--color-primary);
+}
+
+.field textarea { min-height: 80px; resize: vertical; }
+
+.validation-summary {
+    background: var(--color-danger-soft);
+    color: #7f1d1d;
+    border-radius: var(--radius-sm);
+    padding: .7rem .9rem;
+    font-size: .9rem;
+    margin-bottom: 1rem;
+}
+
+.validation-summary ul { margin: 0; padding-left: 1.1rem; }
+.field-error { color: var(--color-danger); font-size: .8rem; display: block; margin-top: .25rem; }
+
+/* ---------- Dashboard ---------- */
+
+.dashboard-greeting { margin-bottom: 1.25rem; }
+.dashboard-greeting h1 { font-size: 1.5rem; }
+.dashboard-greeting p { color: var(--color-text-soft); margin: 0; }
+
+.streak-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.streak-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.streak-current { font-size: 1.3rem; font-weight: 700; }
+.streak-record { color: var(--color-text-soft); font-size: .9rem; }
+
+.streak-days {
+    display: flex;
+    gap: .5rem;
+    margin-top: 1rem;
+    justify-content: space-between;
+}
+
+.streak-day { text-align: center; flex: 1; }
+
+.streak-dot {
+    width: 100%;
+    max-width: 44px;
+    aspect-ratio: 1;
+    margin: 0 auto .3rem;
+    border-radius: 50%;
+    border: 2px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    background: #fff;
+}
+
+.streak-dot.active {
+    border-color: var(--color-primary);
+    background: var(--color-primary-soft);
+}
+
+.streak-day-label { font-size: .7rem; color: var(--color-text-soft); }
+
+/* ---------- Haftalik lider tablosu ---------- */
+
+.leaderboard-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: 1.25rem;
+    margin-bottom: 1.75rem;
+}
+
+.leaderboard-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: .75rem;
+    flex-wrap: wrap;
+}
+
+.leaderboard-title { margin: 0; }
+.leaderboard-range { color: var(--color-text-soft); font-size: .85rem; white-space: nowrap; }
+
+.leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: .9rem;
+}
+
+.leaderboard-table td {
+    padding: .55rem .3rem;
+    border-bottom: 1px solid var(--color-border);
+    font-size: .92rem;
+}
+
+.leaderboard-table tr:last-child td { border-bottom: none; }
+
+.leaderboard-rank {
+    width: 2.6rem;
+    font-weight: 700;
+    text-align: center;
+    font-size: 1.05rem;
+}
+
+.leaderboard-name { font-weight: 600; }
+
+.leaderboard-score {
+    text-align: right;
+    color: var(--color-text-soft);
+    white-space: nowrap;
+}
+
+.leaderboard-table tr.is-me {
+    background: var(--color-primary-soft);
+}
+
+.leaderboard-table tr.is-me td { color: var(--color-primary-dark); }
+
+.leaderboard-me-note {
+    margin: .85rem 0 0;
+    font-size: .88rem;
+    color: var(--color-text-soft);
+}
+
+.leaderboard-me-note strong { color: var(--color-text); }
+
+.leaderboard-table-full { margin-top: .5rem; }
+
+#leaderboardShowAll { margin-top: 1rem; }
+
+.primary-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background: var(--color-primary);
+    color: #fff;
+    border-radius: var(--radius-lg);
+    padding: 1.1rem 1.25rem;
+    text-decoration: none;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 1.75rem;
+}
+
+.primary-action:hover { background: var(--color-primary-dark); }
+.primary-action strong { display: block; font-size: 1.05rem; }
+.primary-action span { font-size: .85rem; opacity: .9; }
+
+.section-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0 0 .75rem;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .85rem;
+}
+
+@media (min-width: 560px) {
+    .category-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 900px) {
+    .category-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.category-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+    transition: border-color .15s ease, transform .1s ease;
+}
+
+.category-card:hover { border-color: var(--color-primary); transform: translateY(-2px); }
+.category-card strong { font-size: 1rem; }
+.category-card span { color: var(--color-text-soft); font-size: .85rem; }
+
+.empty-state {
+    background: var(--color-surface);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 2rem 1rem;
+    text-align: center;
+    color: var(--color-text-soft);
+}
+
+/* ---------- Pratik / kart ekrani ---------- */
+
+.practice-shell { max-width: 640px; margin: 0 auto; }
+
+.practice-head {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.back-link { text-decoration: none; font-size: .9rem; font-weight: 600; }
+.practice-title { flex: 1; min-width: 150px; }
+.practice-title h1 { font-size: 1.15rem; margin: 0; }
+.practice-title p { margin: 0; color: var(--color-text-soft); font-size: .85rem; }
+
+.streak-pill {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    padding: .35rem .8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+}
+
+.card {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: 1.75rem 1.25rem 2rem;
+    text-align: center;
+    min-height: 420px;
+}
+
+@media (min-width: 560px) {
+    .card { padding: 2.25rem 2rem 2.5rem; }
+}
+
+.card-loading, .card-finished { padding: 3rem 1rem; color: var(--color-text-soft); }
+.card-finished h2 { font-size: 1.4rem; color: var(--color-text); }
+
+.badge {
+    display: inline-block;
+    background: var(--color-primary-soft);
+    color: var(--color-primary);
+    border-radius: 999px;
+    padding: .3rem .9rem;
+    font-size: .8rem;
+    font-weight: 700;
+    float: left;
+}
+
+.word {
+    clear: both;
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin: 2rem 0 .25rem;
+    word-break: break-word;
+}
+
+@media (min-width: 560px) {
+    .word { font-size: 2.6rem; }
+}
+
+.pronunciation {
+    color: var(--color-text-soft);
+    font-size: 1rem;
+    margin: 0 0 1.25rem;
+}
+
+.btn-listen { min-width: 180px; margin-bottom: 1.25rem; }
+
+.answer-form {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    margin: 0 auto 1rem;
+    max-width: 360px;
+}
+
+@media (min-width: 480px) {
+    .answer-form { flex-direction: row; }
+    .answer-form .btn { flex-shrink: 0; }
+}
+
+.answer-input {
+    flex: 1;
+    padding: .8rem .9rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.answer-input:focus {
+    outline: 2px solid var(--color-primary-soft);
+    border-color: var(--color-primary);
+}
+
+.answer-input.is-correct { border-color: var(--color-success); background: var(--color-success-soft); }
+.answer-input.is-wrong { border-color: var(--color-danger); background: var(--color-danger-soft); }
+
+.checkbox-row {
+    display: inline-flex;
+    align-items: center;
+    gap: .55rem;
+    font-size: .95rem;
+    cursor: pointer;
+    padding: .4rem .2rem;
+}
+
+.checkbox-row input {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--color-primary);
+    cursor: pointer;
+}
+
+.feedback { font-weight: 600; margin: 1rem 0 0; }
+.feedback-correct { color: var(--color-success); }
+.feedback-wrong { color: var(--color-danger); }
+.feedback-info { color: var(--color-primary); }
+
+/* ---------- Zorluk butonlari (Kolay / Orta / Hiç Bilmiyorum) ---------- */
+
+.rate-buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .6rem;
+    margin-top: 1.5rem;
+}
+
+@media (min-width: 520px) {
+    .rate-buttons { grid-template-columns: repeat(3, 1fr); }
+}
+
+.btn-rate {
+    border: 2px solid var(--color-border);
+    background: var(--color-surface);
+    color: var(--color-text);
+    padding: .9rem .6rem;
+    font-weight: 700;
+    font-size: .95rem;
+}
+
+/* (hover: hover) ile sadece gercek fareyle hover yapabilen cihazlarda uygulanir.
+   Aksi halde mobil dokunmatik tarayicilar dokunmayi gecici bir :hover olarak
+   simule ediyor ve bu "sahte hover" durumu eleman baska bir yere dokunulana
+   kadar DOM'da yapisik kaliyor. Butun disabled oldugunda gorunmuyordu ama
+   sonraki kart gelip buton tekrar enabled olunca hover rengi geri donup
+   "Kolay" hala seciliymis gibi gorunmesine sebep oluyordu (bkz. mobil bug raporu). */
+@media (hover: hover) {
+    .btn-rate-easy:hover:not(:disabled) { border-color: var(--color-success); background: var(--color-success-soft); }
+    .btn-rate-medium:hover:not(:disabled) { border-color: #f59e0b; background: #fef3c7; }
+    .btn-rate-hard:hover:not(:disabled) { border-color: var(--color-danger); background: var(--color-danger-soft); }
+}
+
+.rate-help { margin: .75rem 0 0; }
+
+/* ---------- Telaffuz bolumu ---------- */
+
+.speak-box { margin-top: 1.5rem; }
+
+.speak-prompt { margin: 1.25rem 0 1rem; font-weight: 600; }
+
+.btn-mic { min-width: 200px; }
+
+.btn-mic.is-listening {
+    background: var(--color-danger);
+    animation: mic-pulse 1.1s ease-in-out infinite;
+}
+
+@keyframes mic-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, .45); }
+    50% { box-shadow: 0 0 0 12px rgba(220, 38, 38, 0); }
+}
+
+.speak-result { margin: 1rem 0 0; font-size: .92rem; }
+.speak-result-correct { color: var(--color-success); font-weight: 600; }
+.speak-result-wrong { color: var(--color-danger); }
+
+.mastery-meter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    margin-top: 1rem;
+}
+
+.mastery-dots { color: var(--color-primary); letter-spacing: .25rem; font-size: 1.1rem; }
+.mastery-label { color: var(--color-text-soft); font-size: .8rem; }
+
+.modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    margin-top: 1.25rem;
+}
+
+@media (min-width: 420px) {
+    .modal-actions { flex-direction: row; justify-content: center; }
+}
+
+/* ---------- Dil secimi ---------- */
+
+.language-pills {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+}
+
+.language-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    padding: .5rem .95rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+.language-pill:hover { border-color: var(--color-primary); color: var(--color-primary); }
+
+.language-pill.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #fff;
+}
+
+.language-pill-count {
+    background: rgba(0, 0, 0, .08);
+    border-radius: 999px;
+    padding: 0 .45rem;
+    font-size: .75rem;
+}
+
+.language-pill.active .language-pill-count { background: rgba(255, 255, 255, .25); }
+
+/* ---------- Satir ici seslendirme butonu ---------- */
+
+.term-cell { display: flex; align-items: center; gap: .5rem; }
+
+.btn-speak {
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: .9rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.btn-speak:hover { border-color: var(--color-primary); background: var(--color-primary-soft); }
+.btn-speak:active { transform: scale(.94); }
+
+.divider {
+    position: relative;
+    margin: 1.75rem 0 1.25rem;
+    border-top: 1px dashed var(--color-border);
+}
+
+.divider span {
+    position: absolute;
+    top: -.65rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-surface);
+    padding: 0 .75rem;
+    font-size: .7rem;
+    letter-spacing: .08em;
+    color: var(--color-text-soft);
+}
+
+.meaning { font-size: 1.35rem; font-weight: 700; margin: 1.5rem 0 1rem; }
+
+.hint-box {
+    background: var(--color-warning-soft);
+    border: 1px dashed #fbbf24;
+    border-radius: var(--radius-md);
+    color: var(--color-warning);
+    padding: .9rem 1rem;
+    font-size: .9rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Ornek cumle(ler): kelimenin 1 ya da 2 ornegi olabilir, her biri kendi listeleme
+   maddesi, kendi 🔊 dinle butonu ve kendi ceviri acip-kapama duzenine sahiptir. */
+.example-list {
+    list-style: none;
+    margin: 0 0 1.25rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+}
+
+.example-item {
+    background: #f8fafc;
+    border-radius: var(--radius-md);
+    padding: 1rem;
+}
+
+.example-item .link-button { display: block; margin-top: .5rem; }
+
+.example-row {
+    display: flex;
+    align-items: flex-start;
+    gap: .6rem;
+}
+
+.example-en { flex: 1; font-style: italic; color: var(--color-text); margin: 0; }
+.example-tr { color: var(--color-text-soft); font-size: .9rem; margin: .5rem 0 0; }
+
+.btn-icon {
+    flex: none;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-icon:hover { border-color: var(--color-primary); }
+
+.btn-next { width: 100%; max-width: 320px; }
+
+/* ---------- Kilometre tasi penceresi ---------- */
+
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, .55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 50;
+}
+
+.modal {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    max-width: 360px;
+    width: 100%;
+    box-shadow: var(--shadow-md);
+}
+
+.confetti-canvas {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 60;
+}
+
+/* ---------- Tablolar (bilinmeyen kelimeler + admin) ---------- */
+
+.toolbar {
+    display: flex;
+    gap: .6rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.toolbar input, .toolbar select {
+    padding: .6rem .7rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: .95rem;
+}
+
+.table-wrap {
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    overflow-x: auto;
+}
+
+table { width: 100%; border-collapse: collapse; font-size: .93rem; }
+th, td { padding: .8rem .9rem; text-align: left; border-bottom: 1px solid var(--color-border); }
+th { background: #f9fafb; font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: var(--color-text-soft); }
+tbody tr:last-child td { border-bottom: 0; }
+
+.tag {
+    display: inline-block;
+    border-radius: 999px;
+    padding: .15rem .6rem;
+    font-size: .75rem;
+    font-weight: 600;
+}
+
+.tag-unknown { background: var(--color-danger-soft); color: #991b1b; }
+.tag-hard { background: #fef3c7; color: #92400e; }
+.tag-easy { background: var(--color-success-soft); color: #14532d; }
+
+.row-actions { display: flex; gap: .4rem; flex-wrap: wrap; }
+
+/* Mobilde tablolar kart gorunumune doner */
+@media (max-width: 640px) {
+    .responsive-table thead { display: none; }
+    .responsive-table tr {
+        display: block;
+        border-bottom: 1px solid var(--color-border);
+        padding: .75rem .9rem;
+    }
+    .responsive-table td {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        border: 0;
+        padding: .25rem 0;
+    }
+    .responsive-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--color-text-soft);
+        font-size: .8rem;
+    }
+}
+
+.pagination {
+    display: flex;
+    gap: .4rem;
+    justify-content: center;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.pagination a, .pagination span {
+    padding: .45rem .75rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+    background: #fff;
+    text-decoration: none;
+    font-size: .9rem;
+}
+
+.pagination .current { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
+
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.page-header h1 { font-size: 1.35rem; margin: 0; }
+
+.admin-tabs { display: flex; gap: .5rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
+
+.admin-tabs a {
+    padding: .5rem .9rem;
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    text-decoration: none;
+    font-size: .9rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.admin-tabs a.active { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
+
+.help-text { color: var(--color-text-soft); font-size: .85rem; }

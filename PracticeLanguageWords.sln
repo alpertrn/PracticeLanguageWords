@@ -1,0 +1,47 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34916.146
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1A2B3C4D-0001-4000-8000-000000000001}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PracticeLanguageWords.Domain", "src\PracticeLanguageWords.Domain\PracticeLanguageWords.Domain.csproj", "{1A2B3C4D-0002-4000-8000-000000000002}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PracticeLanguageWords.Application", "src\PracticeLanguageWords.Application\PracticeLanguageWords.Application.csproj", "{1A2B3C4D-0003-4000-8000-000000000003}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PracticeLanguageWords.Infrastructure", "src\PracticeLanguageWords.Infrastructure\PracticeLanguageWords.Infrastructure.csproj", "{1A2B3C4D-0004-4000-8000-000000000004}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PracticeLanguageWords.Web", "src\PracticeLanguageWords.Web\PracticeLanguageWords.Web.csproj", "{1A2B3C4D-0005-4000-8000-000000000005}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A2B3C4D-0002-4000-8000-000000000002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A2B3C4D-0002-4000-8000-000000000002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A2B3C4D-0002-4000-8000-000000000002}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A2B3C4D-0002-4000-8000-000000000002}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A2B3C4D-0003-4000-8000-000000000003}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A2B3C4D-0003-4000-8000-000000000003}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A2B3C4D-0003-4000-8000-000000000003}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A2B3C4D-0003-4000-8000-000000000003}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A2B3C4D-0004-4000-8000-000000000004}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A2B3C4D-0004-4000-8000-000000000004}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A2B3C4D-0004-4000-8000-000000000004}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A2B3C4D-0004-4000-8000-000000000004}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A2B3C4D-0005-4000-8000-000000000005}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A2B3C4D-0005-4000-8000-000000000005}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A2B3C4D-0005-4000-8000-000000000005}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A2B3C4D-0005-4000-8000-000000000005}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1A2B3C4D-0002-4000-8000-000000000002} = {1A2B3C4D-0001-4000-8000-000000000001}
+		{1A2B3C4D-0003-4000-8000-000000000003} = {1A2B3C4D-0001-4000-8000-000000000001}
+		{1A2B3C4D-0004-4000-8000-000000000004} = {1A2B3C4D-0001-4000-8000-000000000001}
+		{1A2B3C4D-0005-4000-8000-000000000005} = {1A2B3C4D-0001-4000-8000-000000000001}
+	EndGlobalSection
+EndGlobal

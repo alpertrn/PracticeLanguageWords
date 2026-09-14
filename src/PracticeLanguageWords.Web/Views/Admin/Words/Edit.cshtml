@@ -1,0 +1,79 @@
+@model WordEditDto
+@{
+    var isNew = Model.Id is null or 0;
+    ViewData["Title"] = isNew ? "Yeni Kelime" : "Kelime Düzenle";
+    IReadOnlyList<CategoryAdminDto> categories = ViewBag.Categories ?? new List<CategoryAdminDto>();
+    var action = isNew ? "/admin/words/create" : $"/admin/words/{Model.Id}/edit";
+}
+
+<div class="form-card" style="max-width:560px;">
+    <h1>@ViewData["Title"]</h1>
+
+    <form method="post" action="@action">
+        @Html.AntiForgeryToken()
+
+        <div asp-validation-summary="All" class="validation-summary"></div>
+
+        <div class="field">
+            <label for="CategoryId">Kategori</label>
+            <select id="CategoryId" name="CategoryId" required>
+                <option value="0">Seçiniz...</option>
+                @foreach (var category in categories)
+                {
+                    <option value="@category.Id" selected="@(category.Id == Model.CategoryId)">
+                        @category.LanguageName · @category.Name
+                    </option>
+                }
+            </select>
+            <span class="help-text">Kelimenin dili, seçtiğiniz kategorinin dilidir.</span>
+        </div>
+
+        <div class="field">
+            <label for="TermText">Kelime (hedef dil)</label>
+            <input id="TermText" name="TermText" value="@Model.TermText" maxlength="200" required autofocus />
+        </div>
+
+        <div class="field">
+            <label for="MeaningText">Türkçe Anlam(lar)</label>
+            <input id="MeaningText" name="MeaningText" value="@Model.MeaningText" maxlength="300" required />
+            <span class="help-text">
+                Birden fazla anlamı virgülle ayırın (örn: "gülmek, gülümsemek").
+                Quizde kullanıcının bunlardan birini yazması doğru sayılır.
+            </span>
+        </div>
+
+        <div class="field">
+            <label for="TermRead">Okunuş</label>
+            <input id="TermRead" name="TermRead" value="@Model.TermRead" maxlength="200" />
+        </div>
+
+        <div class="field">
+            <label for="MemoryConnection">Hafıza İpucu</label>
+            <textarea id="MemoryConnection" name="MemoryConnection" maxlength="500">@Model.MemoryConnection</textarea>
+        </div>
+
+        <div class="field">
+            <label for="ExampleSentence">Örnek Cümle 1 (hedef dil)</label>
+            <textarea id="ExampleSentence" name="ExampleSentence" maxlength="500">@Model.ExampleSentence</textarea>
+        </div>
+
+        <div class="field">
+            <label for="ExampleSentenceMeaning">Örnek Cümle 1 (Türkçe)</label>
+            <textarea id="ExampleSentenceMeaning" name="ExampleSentenceMeaning" maxlength="500">@Model.ExampleSentenceMeaning</textarea>
+        </div>
+
+        <div class="field">
+            <label for="ExampleSentence2">Örnek Cümle 2 (hedef dil, opsiyonel)</label>
+            <textarea id="ExampleSentence2" name="ExampleSentence2" maxlength="500">@Model.ExampleSentence2</textarea>
+            <span class="help-text">Doldurulursa kart ekranında iki örnek cümle madde işaretleriyle listelenir.</span>
+        </div>
+
+        <div class="field">
+            <label for="ExampleSentenceMeaning2">Örnek Cümle 2 (Türkçe)</label>
+            <textarea id="ExampleSentenceMeaning2" name="ExampleSentenceMeaning2" maxlength="500">@Model.ExampleSentenceMeaning2</textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Kaydet</button>
+        <a class="btn btn-ghost btn-block" href="/admin/words" style="margin-top:.5rem;">Vazgeç</a>
+    </form>
+</div>

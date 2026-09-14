@@ -1,0 +1,48 @@
+@model LanguageEditDto
+@{
+    var isNew = Model.Id == 0;
+    ViewData["Title"] = isNew ? "Yeni Dil" : "Dil Düzenle";
+    var action = isNew ? "/admin/languages/create" : $"/admin/languages/{Model.Id}/edit";
+}
+
+<div class="form-card">
+    <h1>@ViewData["Title"]</h1>
+
+    <form method="post" action="@action">
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="Id" value="@Model.Id" />
+
+        <div asp-validation-summary="All" class="validation-summary"></div>
+
+        <div class="field">
+            <label for="Name">Dil Adı</label>
+            <input id="Name" name="Name" value="@Model.Name" maxlength="60" placeholder="Almanca" required autofocus />
+        </div>
+
+        <div class="field">
+            <label for="Code">Dil Kodu</label>
+            <input id="Code" name="Code" value="@Model.Code" maxlength="10" placeholder="de" required />
+            <span class="help-text">URL'de kullanılır: /de/my-words</span>
+        </div>
+
+        <div class="field">
+            <label for="SpeechCode">Seslendirme Kodu</label>
+            <input id="SpeechCode" name="SpeechCode" value="@Model.SpeechCode" maxlength="20" placeholder="de-DE" required />
+            <span class="help-text">Web Speech API dil kodu: en-US, de-DE, fr-FR, es-ES ...</span>
+        </div>
+
+        <div class="field">
+            <label for="DisplayOrder">Sıra</label>
+            <input id="DisplayOrder" name="DisplayOrder" type="number" value="@Model.DisplayOrder" min="0" />
+        </div>
+
+        <label class="checkbox-row" style="margin-bottom:1rem;">
+            <input type="checkbox" name="IsActive" value="true" checked="@Model.IsActive" />
+            <span>Aktif (kullanıcılara gösterilsin)</span>
+        </label>
+        <input type="hidden" name="IsActive" value="false" />
+
+        <button type="submit" class="btn btn-primary btn-block">Kaydet</button>
+        <a class="btn btn-ghost btn-block" href="/admin/languages" style="margin-top:.5rem;">Vazgeç</a>
+    </form>
+</div>

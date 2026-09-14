@@ -1,0 +1,11 @@
+@{
+    var active = ViewBag.ActiveTab as string ?? string.Empty;
+}
+
+<div class="admin-tabs">
+    <a href="/admin/words" class="@(active == "words" ? "active" : "")">Kelimeler</a>
+    <a href="/admin/categories" class="@(active == "categories" ? "active" : "")">Kategoriler</a>
+    <a href="/admin/languages" class="@(active == "languages" ? "active" : "")">Diller</a>
+    <a href="/admin/category-groups" class="@(active == "groups" ? "active" : "")">Gruplar</a>
+    <a href="/admin/words/import" class="@(active == "import" ? "active" : "")">Toplu Yükleme</a>
+</div>

@@ -1,0 +1,87 @@
+@{
+    ViewData["Title"] = "Toplu Kelime Yükleme";
+    ViewBag.ActiveTab = "import";
+    IReadOnlyList<CategoryAdminDto> categories = ViewBag.Categories ?? new List<CategoryAdminDto>();
+    ImportResultDto? result = ViewBag.ImportResult;
+}
+
+<partial name="_AdminTabs" />
+
+<div class="form-card" style="max-width:620px;">
+    <h1>Toplu Kelime Yükleme</h1>
+    <p class="form-subtitle">CSV veya Excel dosyasından kelime aktarın</p>
+
+    <form method="post" action="/admin/words/import" enctype="multipart/form-data">
+        @Html.AntiForgeryToken()
+
+        <div asp-validation-summary="All" class="validation-summary"></div>
+
+        <div class="field">
+            <label for="categoryId">Hedef Kategori</label>
+            <select id="categoryId" name="categoryId" required>
+                <option value="0">Seçiniz...</option>
+                @foreach (var category in categories)
+                {
+                    <option value="@category.Id">@category.LanguageName · @category.Name (@category.WordCount kelime)</option>
+                }
+            </select>
+        </div>
+
+        <div class="field">
+            <label for="file">Dosya (.csv, .xlsx, .xlsm — en fazla 5 MB)</label>
+            <input id="file" name="file" type="file" accept=".csv,.xlsx,.xlsm" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Yükle</button>
+    </form>
+
+    <div style="margin-top:1.5rem;">
+        <h2 style="font-size:1rem;">Beklenen kolon başlıkları</h2>
+        <p class="help-text">
+            <code>TermText</code>, <code>MeaningText</code>, <code>TermRead</code>,
+            <code>MemoryConnection</code>, <code>ExampleSentence</code>, <code>ExampleSentenceMeaning</code>,
+            <code>ExampleSentence2</code>, <code>ExampleSentenceMeaning2</code>
+            <br /><br />
+            İlk iki kolon zorunludur, son iki kolon (ikinci örnek cümle) opsiyoneldir. Kolon sırası
+            önemli değildir; başlık adına göre eşleştirilir.
+            Eski başlıklar (EnglishText, TurkishText, TurkishRead, ExampleSentenceTr) da kabul edilir.
+            Aynı kategoride zaten var olan kelimeler atlanır (mükerrer kayıt oluşmaz).
+        </p>
+    </div>
+</div>
+
+@if (result is not null)
+{
+    <div class="form-card" style="max-width:620px;">
+        <h2 style="font-size:1.05rem;">Sonuç</h2>
+        <p>
+            <strong>@result.Inserted</strong> kelime eklendi,
+            <strong>@result.Skipped</strong> satır atlandı.
+        </p>
+
+        @if (result.Errors.Count > 0)
+        {
+            <div class="table-wrap">
+                <table class="responsive-table">
+                    <thead>
+                        <tr>
+                            <th>Satır</th>
+                            <th>Kelime</th>
+                            <th>Sebep</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var error in result.Errors)
+                        {
+                            <tr>
+                                <td data-label="Satır">@error.RowNumber</td>
+                                <td data-label="Kelime">@error.TermText</td>
+                                <td data-label="Sebep">@error.Reason</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+}

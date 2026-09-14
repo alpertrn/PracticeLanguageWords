@@ -1,0 +1,59 @@
+@{
+    var isAuthenticated = User.Identity?.IsAuthenticated == true;
+    var isAdmin = User.IsInRole("Admin");
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#4f46e5" />
+    <title>@ViewData["Title"] - PracticeLanguageWords</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    @if (isAuthenticated)
+    {
+        <header class="topbar">
+            <div class="topbar-inner">
+                <a class="brand" href="/">
+                    <span class="brand-mark">PLW</span>
+                    <span class="brand-text">PracticeLanguageWords</span>
+                </a>
+                <nav class="topbar-nav">
+                    @if (isAdmin)
+                    {
+                        <a class="nav-link" href="/admin/words">Yönetim</a>
+                    }
+                    <span class="nav-user">@User.Identity!.Name</span>
+                    <form method="post" action="/logout" class="inline-form">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-ghost btn-sm">Çıkış</button>
+                    </form>
+                </nav>
+            </div>
+        </header>
+    }
+
+    <main class="page">
+        @if (TempData["Success"] is string successMessage)
+        {
+            <div class="alert alert-success">@successMessage</div>
+        }
+        @if (TempData["Error"] is string errorMessage)
+        {
+            <div class="alert alert-error">@errorMessage</div>
+        }
+        @if (TempData["Info"] is string infoMessage)
+        {
+            <div class="alert alert-info">@infoMessage</div>
+        }
+
+        @RenderBody()
+    </main>
+
+    <script src="~/js/confetti.js" asp-append-version="true"></script>
+    <script src="~/js/speech.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

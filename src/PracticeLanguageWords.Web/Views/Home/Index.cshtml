@@ -1,0 +1,128 @@
+@model DashboardDto
+@{
+    ViewData["Title"] = "Ana Sayfa";
+    var dayNames = new[] { "Paz", "Pzt", "Sal", "Çar", "Per", "Cum", "Cmt" };
+
+    string RankBadge(int rank) => rank switch
+    {
+        1 => "🥇",
+        2 => "🥈",
+        3 => "🥉",
+        _ => "#" + rank
+    };
+}
+
+<div class="dashboard-greeting">
+    <h1>Merhaba, @Model.Username 👋</h1>
+    <p>Bugün de birkaç kelime çalışalım mı?</p>
+</div>
+
+<section class="streak-card">
+    <div class="streak-header">
+        <div class="streak-current">🔥 @Model.Streak.CurrentStreak Günlük Seri</div>
+        <div class="streak-record">En uzun seri: @Model.Streak.LongestStreak gün</div>
+    </div>
+
+    <div class="streak-days">
+        @foreach (var day in Model.Last7Days)
+        {
+            <div class="streak-day">
+                <div class="streak-dot @(day.Active ? "active" : "")" title="@day.Date.ToString("dd.MM.yyyy")">
+                    @(day.Active ? "🔥" : "")
+                </div>
+                <div class="streak-day-label">@dayNames[(int)day.Date.DayOfWeek]</div>
+            </div>
+        }
+    </div>
+</section>
+
+<section class="leaderboard-card">
+    <div class="leaderboard-header">
+        <h2 class="section-title leaderboard-title">🏆 Haftalık Lider Tablosu</h2>
+        <span class="leaderboard-range">@Model.Leaderboard.WeekStart.ToString("dd.MM") – @Model.Leaderboard.WeekEnd.ToString("dd.MM")</span>
+    </div>
+
+    @if (Model.Leaderboard.TopEntries.Count == 0)
+    {
+        <p class="empty-state">Bu hafta henüz kimse kart çözmedi. İlk sen ol!</p>
+    }
+    else
+    {
+        <table class="leaderboard-table">
+            <tbody>
+                @foreach (var entry in Model.Leaderboard.TopEntries)
+                {
+                    <tr class="@(entry.IsCurrentUser ? "is-me" : "")">
+                        <td class="leaderboard-rank">@RankBadge(entry.Rank)</td>
+                        <td class="leaderboard-name">@entry.DisplayName</td>
+                        <td class="leaderboard-score">@entry.WeeklyCardCount kart</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        @if (Model.Leaderboard.CurrentUserEntry is not null)
+        {
+            <p class="leaderboard-me-note">
+                Sen <strong>@Model.Leaderboard.CurrentUserEntry.Rank.</strong> sıradasın
+                (@Model.Leaderboard.CurrentUserEntry.WeeklyCardCount kart) — @Model.Leaderboard.TotalParticipants kişi arasında.
+            </p>
+        }
+
+        @if (Model.Leaderboard.TotalParticipants > Model.Leaderboard.TopEntries.Count)
+        {
+            <button type="button" class="btn btn-outline btn-block btn-sm" id="leaderboardShowAll">Tüm kullanıcıları göster</button>
+            <table class="leaderboard-table leaderboard-table-full" id="leaderboardFull" hidden></table>
+        }
+    }
+</section>
+
+@if (Model.Languages.Count == 0)
+{
+    <div class="empty-state">Henüz dil tanımlanmamış. Yönetim panelinden dil ekleyin.</div>
+}
+else
+{
+    <h2 class="section-title">Dil seç</h2>
+    <div class="language-pills">
+        @foreach (var language in Model.Languages)
+        {
+            <a class="language-pill @(language.Id == Model.SelectedLanguageId ? "active" : "")"
+               href="/@language.Code">
+                @language.Name
+                <span class="language-pill-count">@language.CategoryCount</span>
+            </a>
+        }
+    </div>
+
+    <a class="primary-action" href="/@Model.SelectedLanguageCode/my-words">
+        <span>
+            <strong>📌 Bilmediğim Kelimeler</strong>
+            <span>@Model.SelectedLanguageName · @Model.UnknownWordCount kelime</span>
+        </span>
+        <span aria-hidden="true">→</span>
+    </a>
+
+    <h2 class="section-title">@Model.SelectedLanguageName kategorileri</h2>
+
+    @if (Model.Categories.Count == 0)
+    {
+        <div class="empty-state">Bu dilde henüz kategori eklenmemiş.</div>
+    }
+    else
+    {
+        <div class="category-grid">
+            @foreach (var category in Model.Categories)
+            {
+                <a class="category-card" href="/@Model.SelectedLanguageCode/practice/@category.Id">
+                    <strong>@category.Name</strong>
+                    <span>@category.WordCount kelime</span>
+                </a>
+            }
+        </div>
+    }
+}
+
+@section Scripts {
+    <script src="~/js/leaderboard.js" asp-append-version="true"></script>
+}

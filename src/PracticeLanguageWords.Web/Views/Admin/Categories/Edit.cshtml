@@ -1,0 +1,50 @@
+@model CategoryEditDto
+@{
+    var isNew = Model.Id == 0;
+    ViewData["Title"] = isNew ? "Yeni Kategori" : "Kategori Düzenle";
+    IReadOnlyList<CategoryGroupDto> groups = ViewBag.Groups ?? new List<CategoryGroupDto>();
+    IReadOnlyList<LanguageDto> languages = ViewBag.Languages ?? new List<LanguageDto>();
+    var action = isNew ? "/admin/categories/create" : $"/admin/categories/{Model.Id}/edit";
+}
+
+<div class="form-card">
+    <h1>@ViewData["Title"]</h1>
+
+    <form method="post" action="@action">
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="Id" value="@Model.Id" />
+
+        <div asp-validation-summary="All" class="validation-summary"></div>
+
+        <div class="field">
+            <label for="LanguageId">Dil</label>
+            <select id="LanguageId" name="LanguageId" required>
+                <option value="0">Seçiniz...</option>
+                @foreach (var language in languages)
+                {
+                    <option value="@language.Id" selected="@(language.Id == Model.LanguageId)">@language.Name</option>
+                }
+            </select>
+            <span class="help-text">Bu kategorideki kelimeler bu dilin telaffuzuyla seslendirilir.</span>
+        </div>
+
+        <div class="field">
+            <label for="Name">Kategori Adı</label>
+            <input id="Name" name="Name" value="@Model.Name" maxlength="150" placeholder="A1 Kelimeler" required />
+        </div>
+
+        <div class="field">
+            <label for="CategoryGroupId">Kategori Grubu</label>
+            <select id="CategoryGroupId" name="CategoryGroupId" required>
+                <option value="0">Seçiniz...</option>
+                @foreach (var group in groups)
+                {
+                    <option value="@group.Id" selected="@(group.Id == Model.CategoryGroupId)">@group.Name</option>
+                }
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Kaydet</button>
+        <a class="btn btn-ghost btn-block" href="/admin/categories" style="margin-top:.5rem;">Vazgeç</a>
+    </form>
+</div>

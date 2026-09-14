@@ -1,0 +1,131 @@
+@model MyWordsDto
+@{
+    ViewData["Title"] = "Bilmediğim Kelimeler";
+}
+
+<div class="page-header">
+    <div>
+        <a class="back-link" href="/@Model.SelectedLanguageCode">&larr; Ana sayfa</a>
+        <h1>📌 Bilmediğim Kelimeler</h1>
+    </div>
+</div>
+
+@if (Model.Languages.Count > 1)
+{
+    <div class="language-pills">
+        @foreach (var language in Model.Languages)
+        {
+            <a class="language-pill @(language.Id == Model.SelectedLanguageId ? "active" : "")"
+               href="/@language.Code/my-words">@language.Name</a>
+        }
+    </div>
+}
+
+@if (Model.Words.Count == 0)
+{
+    <div class="empty-state">
+        <p>@Model.SelectedLanguageName için listende kelime yok. Kartlarda "Hiç Bilmiyorum" dediğin kelimeler burada birikir.</p>
+        <a class="btn btn-primary" href="/@Model.SelectedLanguageCode">Kategorilere dön</a>
+    </div>
+}
+else
+{
+    <a class="primary-action" href="/@Model.SelectedLanguageCode/quiz">
+        <span>
+            <strong>🎲 Bu Kelimelerden Karışık Soru Sor</strong>
+            <span>@Model.Words.Count kelime · anlamını yazarak çalış</span>
+        </span>
+        <span aria-hidden="true">→</span>
+    </a>
+
+    <div class="table-wrap">
+        <table class="responsive-table" id="unknownTable">
+            <thead>
+                <tr>
+                    <th>Kelime</th>
+                    <th>Okunuş</th>
+                    <th>Türkçe Anlamı</th>
+                    <th>Kategori</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var word in Model.Words)
+                {
+                    <tr data-word-id="@word.WordId">
+                        <td data-label="Kelime">
+                            <div class="term-cell">
+                                <strong>@word.TermText</strong>
+                                @* Seslendirme butonu kelimenin kendi diliyle okur (SpeechCode). *@
+                                <button type="button" class="btn-speak"
+                                        data-speak="@word.TermText"
+                                        data-speech-code="@word.SpeechCode"
+                                        title="@word.LanguageName telaffuzunu dinle"
+                                        aria-label="@word.TermText kelimesini dinle">🔊</button>
+                            </div>
+                        </td>
+                        <td data-label="Okunuş">@(word.TermRead ?? "-")</td>
+                        <td data-label="Türkçe">@word.MeaningText</td>
+                        <td data-label="Kategori">@word.CategoryName</td>
+                        <td data-label="">
+                            <button type="button" class="btn btn-outline btn-sm remove-button">
+                                Listeden Çıkar
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+@Html.AntiForgeryToken()
+
+@section Scripts {
+    <script>
+        (function () {
+            'use strict';
+
+            const table = document.getElementById('unknownTable');
+            if (!table) { return; }
+
+            const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+
+            table.addEventListener('click', async function (event) {
+                const button = event.target.closest('.remove-button');
+                if (!button) { return; }
+
+                const row = button.closest('tr');
+                const wordId = row.dataset.wordId;
+
+                button.disabled = true; // cift tiklama korumasi
+
+                try {
+                    const response = await fetch('/api/my-words/' + wordId + '/remove', {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': token,
+                            'X-Requested-With': 'XMLHttpRequest'
+                        }
+                    });
+
+                    if (response.status === 401) {
+                        window.location.href = '/login';
+                        return;
+                    }
+
+                    if (!response.ok) { throw new Error('İşlem başarısız.'); }
+
+                    row.remove(); // sayfa yenilenmeden satiri kaldir
+
+                    if (table.querySelectorAll('tbody tr').length === 0) {
+                        window.location.reload();
+                    }
+                } catch (error) {
+                    button.disabled = false;
+                    button.textContent = 'Tekrar dene';
+                }
+            });
+        })();
+    </script>
+}

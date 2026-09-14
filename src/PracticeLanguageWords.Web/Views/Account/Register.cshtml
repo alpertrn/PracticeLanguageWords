@@ -1,0 +1,58 @@
+@model RegisterViewModel
+@{
+    ViewData["Title"] = "Kayıt Ol";
+    Layout = "_Layout";
+}
+
+<div class="form-card">
+    <h1>Kayıt Ol</h1>
+    <p class="form-subtitle">Kelime çalışmaya bugün başla</p>
+
+    <form method="post" action="/register">
+        @Html.AntiForgeryToken()
+
+        <div asp-validation-summary="All" class="validation-summary"></div>
+
+        <div class="field">
+            <label asp-for="FirstName"></label>
+            <input asp-for="FirstName" autocomplete="given-name" autofocus />
+            <span asp-validation-for="FirstName" class="field-error"></span>
+        </div>
+
+        <div class="field">
+            <label asp-for="LastName"></label>
+            <input asp-for="LastName" autocomplete="family-name" />
+            <span asp-validation-for="LastName" class="field-error"></span>
+        </div>
+
+        <div class="field">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" type="email" autocomplete="email" />
+            <span asp-validation-for="Email" class="field-error"></span>
+        </div>
+
+        <div class="field">
+            <label asp-for="Username"></label>
+            <input asp-for="Username" autocomplete="username" />
+            <span asp-validation-for="Username" class="field-error"></span>
+        </div>
+
+        <div class="field">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" type="password" autocomplete="new-password" />
+            <span asp-validation-for="Password" class="field-error"></span>
+        </div>
+
+        <div class="field">
+            <label asp-for="ConfirmPassword"></label>
+            <input asp-for="ConfirmPassword" type="password" autocomplete="new-password" />
+            <span asp-validation-for="ConfirmPassword" class="field-error"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Hesap Oluştur</button>
+    </form>
+
+    <p class="form-subtitle" style="margin-top:1rem;">
+        Zaten hesabın var mı? <a href="/login">Giriş yap</a>
+    </p>
+</div>

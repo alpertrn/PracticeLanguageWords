@@ -1,0 +1,548 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1A2B3C4D-0005-4000-8000-000000000005}|src\\PracticeLanguageWords.Web\\PracticeLanguageWords.Web.csproj|c:\\users\\alp\\source\\repos\\practicelanguagewords\\src\\practicelanguagewords.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1A2B3C4D-0005-4000-8000-000000000005}|src\\PracticeLanguageWords.Web\\PracticeLanguageWords.Web.csproj|solutionrelative:src\\practicelanguagewords.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A2B3C4D-0005-4000-8000-000000000005}|src\\PracticeLanguageWords.Web\\PracticeLanguageWords.Web.csproj|c:\\users\\alp\\source\\repos\\practicelanguagewords\\src\\practicelanguagewords.web\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{1A2B3C4D-0005-4000-8000-000000000005}|src\\PracticeLanguageWords.Web\\PracticeLanguageWords.Web.csproj|solutionrelative:src\\practicelanguagewords.web\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A2B3C4D-0005-4000-8000-000000000005}|src\\PracticeLanguageWords.Web\\PracticeLanguageWords.Web.csproj|c:\\users\\alp\\source\\repos\\practicelanguagewords\\src\\practicelanguagewords.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A2B3C4D-0005-4000-8000-000000000005}|src\\PracticeLanguageWords.Web\\PracticeLanguageWords.Web.csproj|solutionrelative:src\\practicelanguagewords.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A2B3C4D-0004-4000-8000-000000000004}|src\\PracticeLanguageWords.Infrastructure\\PracticeLanguageWords.Infrastructure.csproj|c:\\users\\alp\\source\\repos\\practicelanguagewords\\src\\practicelanguagewords.infrastructure\\persistence\\dbseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A2B3C4D-0004-4000-8000-000000000004}|src\\PracticeLanguageWords.Infrastructure\\PracticeLanguageWords.Infrastructure.csproj|solutionrelative:src\\practicelanguagewords.infrastructure\\persistence\\dbseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A2B3C4D-0004-4000-8000-000000000004}|src\\PracticeLanguageWords.Infrastructure\\PracticeLanguageWords.Infrastructure.csproj|c:\\users\\alp\\source\\repos\\practicelanguagewords\\src\\practicelanguagewords.infrastructure\\persistence\\repositories\\catalogrepositories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A2B3C4D-0004-4000-8000-000000000004}|src\\PracticeLanguageWords.Infrastructure\\PracticeLanguageWords.Infrastructure.csproj|solutionrelative:src\\practicelanguagewords.infrastructure\\persistence\\repositories\\catalogrepositories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A2B3C4D-0002-4000-8000-000000000002}|src\\PracticeLanguageWords.Domain\\PracticeLanguageWords.Domain.csproj|c:\\users\\alp\\source\\repos\\practicelanguagewords\\src\\practicelanguagewords.domain\\entities\\userwordprogress.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A2B3C4D-0002-4000-8000-000000000002}|src\\PracticeLanguageWords.Domain\\PracticeLanguageWords.Domain.csproj|solutionrelative:src\\practicelanguagewords.domain\\entities\\userwordprogress.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A2B3C4D-0002-4000-8000-000000000002}|src\\PracticeLanguageWords.Domain\\PracticeLanguageWords.Domain.csproj|c:\\users\\alp\\source\\repos\\practicelanguagewords\\src\\practicelanguagewords.domain\\entities\\userstreaklog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A2B3C4D-0002-4000-8000-000000000002}|src\\PracticeLanguageWords.Domain\\PracticeLanguageWords.Domain.csproj|solutionrelative:src\\practicelanguagewords.domain\\entities\\userstreaklog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A2B3C4D-0002-4000-8000-000000000002}|src\\PracticeLanguageWords.Domain\\PracticeLanguageWords.Domain.csproj|c:\\users\\alp\\source\\repos\\practicelanguagewords\\src\\practicelanguagewords.domain\\entities\\userstreak.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A2B3C4D-0002-4000-8000-000000000002}|src\\PracticeLanguageWords.Domain\\PracticeLanguageWords.Domain.csproj|solutionrelative:src\\practicelanguagewords.domain\\entities\\userstreak.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A2B3C4D-0002-4000-8000-000000000002}|src\\PracticeLanguageWords.Domain\\PracticeLanguageWords.Domain.csproj|c:\\users\\alp\\source\\repos\\practicelanguagewords\\src\\practicelanguagewords.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A2B3C4D-0002-4000-8000-000000000002}|src\\PracticeLanguageWords.Domain\\PracticeLanguageWords.Domain.csproj|solutionrelative:src\\practicelanguagewords.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|c:\\users\\alp\\source\\repos\\practicelanguagewords\\src\\practicelanguagewords.application\\services\\categoryadminservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|solutionrelative:src\\practicelanguagewords.application\\services\\categoryadminservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|c:\\users\\alp\\source\\repos\\practicelanguagewords\\src\\practicelanguagewords.application\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|solutionrelative:src\\practicelanguagewords.application\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|c:\\users\\alp\\source\\repos\\practicelanguagewords\\src\\practicelanguagewords.application\\services\\answerevaluator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|solutionrelative:src\\practicelanguagewords.application\\services\\answerevaluator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|c:\\users\\alp\\source\\repos\\practicelanguagewords\\src\\practicelanguagewords.application\\interfaces\\iwordselectionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|solutionrelative:src\\practicelanguagewords.application\\interfaces\\iwordselectionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|c:\\users\\alp\\source\\repos\\practicelanguagewords\\src\\practicelanguagewords.application\\interfaces\\ipronunciationevaluator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|solutionrelative:src\\practicelanguagewords.application\\interfaces\\ipronunciationevaluator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|c:\\users\\alp\\source\\repos\\practicelanguagewords\\src\\practicelanguagewords.application\\interfaces\\istreakservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|solutionrelative:src\\practicelanguagewords.application\\interfaces\\istreakservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|c:\\users\\alp\\source\\repos\\practicelanguagewords\\src\\practicelanguagewords.application\\interfaces\\ipracticeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|solutionrelative:src\\practicelanguagewords.application\\interfaces\\ipracticeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|c:\\users\\alp\\source\\repos\\practicelanguagewords\\src\\practicelanguagewords.application\\interfaces\\ileaderboardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|solutionrelative:src\\practicelanguagewords.application\\interfaces\\ileaderboardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|c:\\users\\alp\\source\\repos\\practicelanguagewords\\src\\practicelanguagewords.application\\interfaces\\icurrentuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|solutionrelative:src\\practicelanguagewords.application\\interfaces\\icurrentuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|c:\\users\\alp\\source\\repos\\practicelanguagewords\\src\\practicelanguagewords.application\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|solutionrelative:src\\practicelanguagewords.application\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|c:\\users\\alp\\source\\repos\\practicelanguagewords\\src\\practicelanguagewords.application\\interfaces\\ianswerevaluator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|solutionrelative:src\\practicelanguagewords.application\\interfaces\\ianswerevaluator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|c:\\users\\alp\\source\\repos\\practicelanguagewords\\src\\practicelanguagewords.application\\interfaces\\iadminservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|solutionrelative:src\\practicelanguagewords.application\\interfaces\\iadminservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|c:\\users\\alp\\source\\repos\\practicelanguagewords\\src\\practicelanguagewords.application\\dtos\\practicedtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|solutionrelative:src\\practicelanguagewords.application\\dtos\\practicedtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|c:\\users\\alp\\source\\repos\\practicelanguagewords\\src\\practicelanguagewords.application\\dtos\\parsedwordrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|solutionrelative:src\\practicelanguagewords.application\\dtos\\parsedwordrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|c:\\users\\alp\\source\\repos\\practicelanguagewords\\src\\practicelanguagewords.application\\dtos\\leaderboarddtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|solutionrelative:src\\practicelanguagewords.application\\dtos\\leaderboarddtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|c:\\users\\alp\\source\\repos\\practicelanguagewords\\src\\practicelanguagewords.application\\dtos\\dashboarddtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|solutionrelative:src\\practicelanguagewords.application\\dtos\\dashboarddtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|c:\\users\\alp\\source\\repos\\practicelanguagewords\\src\\practicelanguagewords.application\\dtos\\authdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|solutionrelative:src\\practicelanguagewords.application\\dtos\\authdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|c:\\users\\alp\\source\\repos\\practicelanguagewords\\src\\practicelanguagewords.application\\dtos\\admindtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A2B3C4D-0003-4000-8000-000000000003}|src\\PracticeLanguageWords.Application\\PracticeLanguageWords.Application.csproj|solutionrelative:src\\practicelanguagewords.application\\dtos\\admindtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A2B3C4D-0002-4000-8000-000000000002}|src\\PracticeLanguageWords.Domain\\PracticeLanguageWords.Domain.csproj|c:\\users\\alp\\source\\repos\\practicelanguagewords\\src\\practicelanguagewords.domain\\enums\\difficultylevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A2B3C4D-0002-4000-8000-000000000002}|src\\PracticeLanguageWords.Domain\\PracticeLanguageWords.Domain.csproj|solutionrelative:src\\practicelanguagewords.domain\\enums\\difficultylevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 13,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:137:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:138:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:139:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:140:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:141:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:136:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:144:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:136:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:135:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Web\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "src\\PracticeLanguageWords.Web\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Web\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "src\\PracticeLanguageWords.Web\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-14T17:27:41.474Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Web\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "src\\PracticeLanguageWords.Web\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Web\\appsettings.Development.json",
+              "RelativeToolTip": "src\\PracticeLanguageWords.Web\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-09-14T17:27:29.178Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Web\\Program.cs",
+              "RelativeDocumentMoniker": "src\\PracticeLanguageWords.Web\\Program.cs",
+              "ToolTip": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Web\\Program.cs",
+              "RelativeToolTip": "src\\PracticeLanguageWords.Web\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T17:27:27.122Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DbSeeder.cs",
+              "DocumentMoniker": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Infrastructure\\Persistence\\DbSeeder.cs",
+              "RelativeDocumentMoniker": "src\\PracticeLanguageWords.Infrastructure\\Persistence\\DbSeeder.cs",
+              "ToolTip": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Infrastructure\\Persistence\\DbSeeder.cs",
+              "RelativeToolTip": "src\\PracticeLanguageWords.Infrastructure\\Persistence\\DbSeeder.cs",
+              "ViewState": "AgIAAH8AAAAAAAAAAAAcwJsAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T17:21:49.712Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CatalogRepositories.cs",
+              "DocumentMoniker": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Infrastructure\\Persistence\\Repositories\\CatalogRepositories.cs",
+              "RelativeDocumentMoniker": "src\\PracticeLanguageWords.Infrastructure\\Persistence\\Repositories\\CatalogRepositories.cs",
+              "ToolTip": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Infrastructure\\Persistence\\Repositories\\CatalogRepositories.cs",
+              "RelativeToolTip": "src\\PracticeLanguageWords.Infrastructure\\Persistence\\Repositories\\CatalogRepositories.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAswAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T17:21:38.366Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserWordProgress.cs",
+              "DocumentMoniker": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Domain\\Entities\\UserWordProgress.cs",
+              "RelativeDocumentMoniker": "src\\PracticeLanguageWords.Domain\\Entities\\UserWordProgress.cs",
+              "ToolTip": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Domain\\Entities\\UserWordProgress.cs",
+              "RelativeToolTip": "src\\PracticeLanguageWords.Domain\\Entities\\UserWordProgress.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T17:21:19.708Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserStreakLog.cs",
+              "DocumentMoniker": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Domain\\Entities\\UserStreakLog.cs",
+              "RelativeDocumentMoniker": "src\\PracticeLanguageWords.Domain\\Entities\\UserStreakLog.cs",
+              "ToolTip": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Domain\\Entities\\UserStreakLog.cs",
+              "RelativeToolTip": "src\\PracticeLanguageWords.Domain\\Entities\\UserStreakLog.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T17:21:17.567Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UserStreak.cs",
+              "DocumentMoniker": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Domain\\Entities\\UserStreak.cs",
+              "RelativeDocumentMoniker": "src\\PracticeLanguageWords.Domain\\Entities\\UserStreak.cs",
+              "ToolTip": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Domain\\Entities\\UserStreak.cs",
+              "RelativeToolTip": "src\\PracticeLanguageWords.Domain\\Entities\\UserStreak.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T17:21:13.844Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Domain\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "src\\PracticeLanguageWords.Domain\\Entities\\User.cs",
+              "ToolTip": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Domain\\Entities\\User.cs",
+              "RelativeToolTip": "src\\PracticeLanguageWords.Domain\\Entities\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T17:21:11.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CategoryAdminService.cs",
+              "DocumentMoniker": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\Services\\CategoryAdminService.cs",
+              "RelativeDocumentMoniker": "src\\PracticeLanguageWords.Application\\Services\\CategoryAdminService.cs",
+              "ToolTip": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\Services\\CategoryAdminService.cs",
+              "RelativeToolTip": "src\\PracticeLanguageWords.Application\\Services\\CategoryAdminService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T17:21:02.752Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "src\\PracticeLanguageWords.Application\\Services\\AuthService.cs",
+              "ToolTip": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\Services\\AuthService.cs",
+              "RelativeToolTip": "src\\PracticeLanguageWords.Application\\Services\\AuthService.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T17:19:46.105Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AnswerEvaluator.cs",
+              "DocumentMoniker": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\Services\\AnswerEvaluator.cs",
+              "RelativeDocumentMoniker": "src\\PracticeLanguageWords.Application\\Services\\AnswerEvaluator.cs",
+              "ToolTip": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\Services\\AnswerEvaluator.cs",
+              "RelativeToolTip": "src\\PracticeLanguageWords.Application\\Services\\AnswerEvaluator.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T17:19:42.445Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IWordSelectionService.cs",
+              "DocumentMoniker": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\Interfaces\\IWordSelectionService.cs",
+              "RelativeDocumentMoniker": "src\\PracticeLanguageWords.Application\\Interfaces\\IWordSelectionService.cs",
+              "ToolTip": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\Interfaces\\IWordSelectionService.cs",
+              "RelativeToolTip": "src\\PracticeLanguageWords.Application\\Interfaces\\IWordSelectionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T17:19:39.276Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IStreakService.cs",
+              "DocumentMoniker": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\Interfaces\\IStreakService.cs",
+              "RelativeDocumentMoniker": "src\\PracticeLanguageWords.Application\\Interfaces\\IStreakService.cs",
+              "ToolTip": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\Interfaces\\IStreakService.cs",
+              "RelativeToolTip": "src\\PracticeLanguageWords.Application\\Interfaces\\IStreakService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T17:18:43.666Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IPronunciationEvaluator.cs",
+              "DocumentMoniker": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\Interfaces\\IPronunciationEvaluator.cs",
+              "RelativeDocumentMoniker": "src\\PracticeLanguageWords.Application\\Interfaces\\IPronunciationEvaluator.cs",
+              "ToolTip": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\Interfaces\\IPronunciationEvaluator.cs",
+              "RelativeToolTip": "src\\PracticeLanguageWords.Application\\Interfaces\\IPronunciationEvaluator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T17:18:38.362Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IPracticeService.cs",
+              "DocumentMoniker": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\Interfaces\\IPracticeService.cs",
+              "RelativeDocumentMoniker": "src\\PracticeLanguageWords.Application\\Interfaces\\IPracticeService.cs",
+              "ToolTip": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\Interfaces\\IPracticeService.cs",
+              "RelativeToolTip": "src\\PracticeLanguageWords.Application\\Interfaces\\IPracticeService.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAowBUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T17:17:56.848Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ILeaderboardService.cs",
+              "DocumentMoniker": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\Interfaces\\ILeaderboardService.cs",
+              "RelativeDocumentMoniker": "src\\PracticeLanguageWords.Application\\Interfaces\\ILeaderboardService.cs",
+              "ToolTip": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\Interfaces\\ILeaderboardService.cs",
+              "RelativeToolTip": "src\\PracticeLanguageWords.Application\\Interfaces\\ILeaderboardService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T17:17:52.906Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ICurrentUserService.cs",
+              "DocumentMoniker": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\Interfaces\\ICurrentUserService.cs",
+              "RelativeDocumentMoniker": "src\\PracticeLanguageWords.Application\\Interfaces\\ICurrentUserService.cs",
+              "ToolTip": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\Interfaces\\ICurrentUserService.cs",
+              "RelativeToolTip": "src\\PracticeLanguageWords.Application\\Interfaces\\ICurrentUserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T17:17:51.231Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\Interfaces\\IAuthService.cs",
+              "RelativeDocumentMoniker": "src\\PracticeLanguageWords.Application\\Interfaces\\IAuthService.cs",
+              "ToolTip": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\Interfaces\\IAuthService.cs",
+              "RelativeToolTip": "src\\PracticeLanguageWords.Application\\Interfaces\\IAuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T17:17:48.235Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "IAnswerEvaluator.cs",
+              "DocumentMoniker": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\Interfaces\\IAnswerEvaluator.cs",
+              "RelativeDocumentMoniker": "src\\PracticeLanguageWords.Application\\Interfaces\\IAnswerEvaluator.cs",
+              "ToolTip": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\Interfaces\\IAnswerEvaluator.cs",
+              "RelativeToolTip": "src\\PracticeLanguageWords.Application\\Interfaces\\IAnswerEvaluator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T17:17:44.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "IAdminServices.cs",
+              "DocumentMoniker": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\Interfaces\\IAdminServices.cs",
+              "RelativeDocumentMoniker": "src\\PracticeLanguageWords.Application\\Interfaces\\IAdminServices.cs",
+              "ToolTip": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\Interfaces\\IAdminServices.cs",
+              "RelativeToolTip": "src\\PracticeLanguageWords.Application\\Interfaces\\IAdminServices.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAIwBEAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T17:17:39.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "PracticeDtos.cs",
+              "DocumentMoniker": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\DTOs\\PracticeDtos.cs",
+              "RelativeDocumentMoniker": "src\\PracticeLanguageWords.Application\\DTOs\\PracticeDtos.cs",
+              "ToolTip": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\DTOs\\PracticeDtos.cs",
+              "RelativeToolTip": "src\\PracticeLanguageWords.Application\\DTOs\\PracticeDtos.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAcwBAAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T17:17:16.932Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ParsedWordRow.cs",
+              "DocumentMoniker": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\DTOs\\ParsedWordRow.cs",
+              "RelativeDocumentMoniker": "src\\PracticeLanguageWords.Application\\DTOs\\ParsedWordRow.cs",
+              "ToolTip": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\DTOs\\ParsedWordRow.cs",
+              "RelativeToolTip": "src\\PracticeLanguageWords.Application\\DTOs\\ParsedWordRow.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T17:17:14.478Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "LeaderboardDtos.cs",
+              "DocumentMoniker": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\DTOs\\LeaderboardDtos.cs",
+              "RelativeDocumentMoniker": "src\\PracticeLanguageWords.Application\\DTOs\\LeaderboardDtos.cs",
+              "ToolTip": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\DTOs\\LeaderboardDtos.cs",
+              "RelativeToolTip": "src\\PracticeLanguageWords.Application\\DTOs\\LeaderboardDtos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T17:17:12.934Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "DashboardDtos.cs",
+              "DocumentMoniker": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\DTOs\\DashboardDtos.cs",
+              "RelativeDocumentMoniker": "src\\PracticeLanguageWords.Application\\DTOs\\DashboardDtos.cs",
+              "ToolTip": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\DTOs\\DashboardDtos.cs",
+              "RelativeToolTip": "src\\PracticeLanguageWords.Application\\DTOs\\DashboardDtos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T17:17:11.164Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "AuthDtos.cs",
+              "DocumentMoniker": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\DTOs\\AuthDtos.cs",
+              "RelativeDocumentMoniker": "src\\PracticeLanguageWords.Application\\DTOs\\AuthDtos.cs",
+              "ToolTip": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\DTOs\\AuthDtos.cs",
+              "RelativeToolTip": "src\\PracticeLanguageWords.Application\\DTOs\\AuthDtos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T17:17:09.332Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "AdminDtos.cs",
+              "DocumentMoniker": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\DTOs\\AdminDtos.cs",
+              "RelativeDocumentMoniker": "src\\PracticeLanguageWords.Application\\DTOs\\AdminDtos.cs",
+              "ToolTip": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Application\\DTOs\\AdminDtos.cs",
+              "RelativeToolTip": "src\\PracticeLanguageWords.Application\\DTOs\\AdminDtos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T17:17:07.833Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "DifficultyLevel.cs",
+              "DocumentMoniker": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Domain\\Enums\\DifficultyLevel.cs",
+              "RelativeDocumentMoniker": "src\\PracticeLanguageWords.Domain\\Enums\\DifficultyLevel.cs",
+              "ToolTip": "C:\\Users\\ALp\\source\\repos\\PracticeLanguageWords\\src\\PracticeLanguageWords.Domain\\Enums\\DifficultyLevel.cs",
+              "RelativeToolTip": "src\\PracticeLanguageWords.Domain\\Enums\\DifficultyLevel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-14T14:01:04.869Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
