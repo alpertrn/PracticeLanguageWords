@@ -12,6 +12,8 @@
     };
 }
 
+<div class="dashboard-content">
+
 <div class="dashboard-greeting">
     <h1>Merhaba, @Model.Username 👋</h1>
     <p>Bugün de birkaç kelime çalışalım mı?</p>
@@ -102,45 +104,49 @@
 }
 else
 {
-    <h2 class="section-title">Dil seç</h2>
-    <div class="language-pills">
-        @foreach (var language in Model.Languages)
-        {
-            <a class="language-pill @(language.Id == Model.SelectedLanguageId ? "active" : "")"
-               href="/@language.Code">
-                @language.Name
-                <span class="language-pill-count">@language.CategoryCount</span>
-            </a>
-        }
-    </div>
-
-    <a class="primary-action" href="/@Model.SelectedLanguageCode/my-words">
-        <span>
-            <strong>📌 Bilmediğim Kelimeler</strong>
-            <span>@Model.SelectedLanguageName · @Model.UnknownWordCount kelime</span>
-        </span>
-        <span aria-hidden="true">→</span>
-    </a>
-
-    <h2 class="section-title">@Model.SelectedLanguageName kategorileri</h2>
-
-    @if (Model.Categories.Count == 0)
-    {
-        <div class="empty-state">Bu dilde henüz kategori eklenmemiş.</div>
-    }
-    else
-    {
-        <div class="category-grid">
-            @foreach (var category in Model.Categories)
+    <section class="languages-section">
+        <h2 class="section-title">Dil Seç</h2>
+        <div class="language-pills">
+            @foreach (var language in Model.Languages)
             {
-                <a class="category-card" href="/@Model.SelectedLanguageCode/practice/@category.Id">
-                    <strong>@category.Name</strong>
-                    <span>@category.WordCount kelime</span>
+                <a class="language-pill @(language.Id == Model.SelectedLanguageId ? "active" : "")"
+                   href="/@language.Code">
+                    @language.Name
+                    <span class="language-pill-count">@language.CategoryCount</span>
                 </a>
             }
         </div>
-    }
+
+        <a class="primary-action" href="/@Model.SelectedLanguageCode/my-words">
+            <span>
+                <strong>📌 Bilmediğim Kelimeler</strong>
+                <span>@Model.SelectedLanguageName · @Model.UnknownWordCount kelime</span>
+            </span>
+            <span aria-hidden="true">→</span>
+        </a>
+
+        <h2 class="section-title">@Model.SelectedLanguageName Kategorileri</h2>
+
+        @if (Model.Categories.Count == 0)
+        {
+            <div class="empty-state">Bu dilde henüz kategori eklenmemiş.</div>
+        }
+        else
+        {
+            <div class="category-grid">
+                @foreach (var category in Model.Categories)
+                {
+                    <a class="category-card" href="/@Model.SelectedLanguageCode/practice/@category.Id">
+                        <strong>@category.Name</strong>
+                        <span>@category.WordCount kelime</span>
+                    </a>
+                }
+            </div>
+        }
+    </section>
 }
+
+</div>
 
 @section Scripts {
     <script src="~/js/leaderboard.js" asp-append-version="true"></script>

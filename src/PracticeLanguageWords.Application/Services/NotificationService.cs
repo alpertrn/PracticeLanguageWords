@@ -127,7 +127,7 @@ public class NotificationService : INotificationService
                 }
 
                 title = "PracticeLanguageWords";
-                body = MotivationalMessages[Random.Shared.Next(MotivationalMessages.Length)];
+                body = await BuildMotivationalMessageAsync(user.Id, ct);
             }
             else
             {
@@ -150,6 +150,28 @@ public class NotificationService : INotificationService
         }
 
         return sentCount;
+    }
+
+    /// <summary>
+    /// Az aktif kullaniciya gidecek tesvik mesajini secer. Sabit genel mesajlara ek olarak,
+    /// kullanicinin "Bilmedigim Kelimeler" listesinde kelime varsa (tum diller toplami),
+    /// bu sayiyi anan kisisellestirilmis bir mesaj da havuza eklenir - boylece bazen genel,
+    /// bazen "X kelimeni bekliyor" tarzinda somut bir mesaj rastgele secilmis olur.
+    /// </summary>
+    private async Task<string> BuildMotivationalMessageAsync(int userId, CancellationToken ct)
+    {
+        var unknownCount = await _uow.WordProgresses.CountUnknownAsync(userId, languageId: null, ct);
+
+        var candidates = new List<string>(MotivationalMessages);
+
+        if (unknownCount > 0)
+        {
+            candidates.Add(unknownCount == 1
+                ? "Bilmediğin 1 kelime seni bekliyor. Şimdi çalışmaya ne dersin? 📚"
+                : $"Bilmediğin {unknownCount} kelime var. Birkaçına şimdi çalışmaya ne dersin? 📚");
+        }
+
+        return candidates[Random.Shared.Next(candidates.Count)];
     }
 
     private async Task<bool> SendToAllSubscriptionsAsync(User user, string title, string body, CancellationToken ct)

@@ -45,12 +45,13 @@ public class DashboardService : IDashboardService
             .OrderBy(c => c.Name)
             .ToList();
 
-        // Karsilama mesajinda kullanici adi yerine gercek isim gosterilir (lider tablosundaki
-        // "ad soyad" davranisiyla tutarli - bkz. LeaderboardService.BuildRanked). Ikisi de
-        // bossa (eski kullanici, henuz guncellenmemis) kullanici adina geri dusulur.
-        var displayName = string.IsNullOrWhiteSpace(user.FirstName) && string.IsNullOrWhiteSpace(user.LastName)
+        // Karsilama mesajinda sadece ilk isim gosterilir ("Merhaba, Alper" - soyadsiz, lider
+        // tablosundaki "ad soyad" gosteriminden farkli olarak burada daha kisa/samimi bir
+        // hitap tercih edildi). Isim bossa (eski kullanici, henuz guncellenmemis) kullanici
+        // adina geri dusulur.
+        var displayName = string.IsNullOrWhiteSpace(user.FirstName)
             ? user.Username
-            : $"{user.FirstName} {user.LastName}".Trim();
+            : user.FirstName.Trim();
 
         return new DashboardDto(
             displayName,

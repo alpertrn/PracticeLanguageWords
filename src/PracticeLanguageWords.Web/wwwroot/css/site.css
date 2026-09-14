@@ -244,9 +244,24 @@ a { color: var(--color-primary); }
 
 /* ---------- Dashboard ---------- */
 
-.dashboard-greeting { margin-bottom: 1.25rem; }
-.dashboard-greeting h1 { font-size: 1.5rem; }
+.dashboard-greeting { margin-bottom: 1.25rem; text-align: center; }
+.dashboard-greeting h1 { font-size: 1.2rem; margin: 0 0 .2rem; }
 .dashboard-greeting p { color: var(--color-text-soft); margin: 0; }
+
+/* Masaustunde (tablet/telefon disinda) karsilama sola yasli olsun - ortalama sadece
+   dar ekranlarda istenmisti. */
+@media (min-width: 901px) {
+    .dashboard-greeting { text-align: left; }
+}
+
+/* Mobil ve tablette (masaustunde degil) haftalik lider tablosu, dil/kategori secimi
+   bolumunun ALTINA alinir - kucuk ekranda kullanici once "ne calisacagini" gorsun,
+   liderlik tablosu en sonda kalsin diye. Masaustunde eski sira (seri -> lider -> diller)
+   aynen korunur. */
+@media (max-width: 900px) {
+    .dashboard-content { display: flex; flex-direction: column; }
+    .dashboard-content .leaderboard-card { order: 10; }
+}
 
 .streak-card {
     background: var(--color-surface);
@@ -498,6 +513,21 @@ a { color: var(--color-primary); }
     display: flex;
     align-items: center;
     gap: .3rem;
+}
+
+/* Dar ekranlarda (telefon) baslik + alt metin, geri linki ve seri rozetiyle ayni satira
+   sikismaya calisinca alt metin ("Karti incele, zorluk derecesini sec") 2-3 satira bolunup
+   kayik/tasmis gorunuyordu. Cozum: geri link ve rozet ilk satirda kalir, baslik bloku tam
+   genislikte kendi satirina geger. */
+@media (max-width: 480px) {
+    .practice-title {
+        flex-basis: 100%;
+        min-width: 0;
+        order: 3;
+    }
+
+    .back-link { order: 1; }
+    .streak-pill { order: 2; margin-left: auto; }
 }
 
 .card {
@@ -757,6 +787,10 @@ a { color: var(--color-primary); }
     font-size: .7rem;
     letter-spacing: .08em;
     color: var(--color-text-soft);
+    /* Metin dar ekranlarda 2 satira bolununce (ornegin "ARKA YUZ (IPUCU & ANLAM)"),
+       text-align olmadan alt satir sola yaslanip kaymis gorunuyordu. */
+    text-align: center;
+    max-width: 90%;
 }
 
 .meaning { font-size: 1.35rem; font-weight: 700; margin: 1.5rem 0 1rem; }
