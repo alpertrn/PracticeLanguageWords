@@ -49,6 +49,14 @@
     else
     {
         <table class="leaderboard-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th class="leaderboard-score">Kart</th>
+                    <th class="leaderboard-lastseen">Son görülme</th>
+                </tr>
+            </thead>
             <tbody>
                 @foreach (var entry in Model.Leaderboard.TopEntries)
                 {
@@ -56,6 +64,7 @@
                         <td class="leaderboard-rank">@RankBadge(entry.Rank)</td>
                         <td class="leaderboard-name">@entry.DisplayName</td>
                         <td class="leaderboard-score">@entry.WeeklyCardCount kart</td>
+                        <td class="leaderboard-lastseen">@entry.LastSeen</td>
                     </tr>
                 }
             </tbody>
@@ -72,7 +81,17 @@
         @if (Model.Leaderboard.TotalParticipants > Model.Leaderboard.TopEntries.Count)
         {
             <button type="button" class="btn btn-outline btn-block btn-sm" id="leaderboardShowAll">Tüm kullanıcıları göster</button>
-            <table class="leaderboard-table leaderboard-table-full" id="leaderboardFull" hidden></table>
+            <table class="leaderboard-table leaderboard-table-full" id="leaderboardFull" hidden>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th class="leaderboard-score">Kart</th>
+                        <th class="leaderboard-lastseen">Son görülme</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboardFullBody"></tbody>
+            </table>
         }
     }
 </section>

@@ -58,6 +58,10 @@ public class StreakService : IStreakService
     {
         var today = TurkeyClock.Today();
 
+        // Lider tablosundaki "Son görülme" sutunu icin: gunde bir kez degil, HER
+        // aktivite cagrisinda guncellenir (saat hassasiyetli gösterim - "3sa. önce" gibi).
+        await _uow.Users.TouchLastSeenAsync(userId, DateTime.UtcNow, ct);
+
         // Atomik "ilk kayit" denemesi: iki es zamanli istek gelirse sadece biri true doner.
         var isFirstActivityToday = await _uow.StreakLogs.TryCreateForTodayAsync(userId, today, ct);
 

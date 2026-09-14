@@ -21,6 +21,14 @@ public class UserRepository : IUserRepository
         _context.Users.AnyAsync(u => u.Username == username, ct);
 
     public void Add(User user) => _context.Users.Add(user);
+
+    public async Task TouchLastSeenAsync(int userId, DateTime utcNow, CancellationToken ct = default)
+    {
+        // Read-modify-write yerine tek SQL UPDATE (bkz. UserStreakLogRepository.IncrementCardCountAsync).
+        await _context.Users
+            .Where(u => u.Id == userId)
+            .ExecuteUpdateAsync(setters => setters.SetProperty(u => u.LastSeenAt, utcNow), ct);
+    }
 }
 
 public class UserStreakRepository : IUserStreakRepository
@@ -95,7 +103,7 @@ public class UserStreakLogRepository : IUserStreakLogRepository
             .GroupBy(l => l.UserId)
             .Select(g => new { UserId = g.Key, Total = g.Sum(x => x.CardCount) })
             .Join(_context.Users, x => x.UserId, u => u.Id, (x, u) =>
-                new LeaderboardRow(u.Id, u.Username, u.FirstName, u.LastName, x.Total))
+                new LeaderboardRow(u.Id, u.Username, u.FirstName, u.LastName, x.Total, u.LastSeenAt))
             // Esit puanda siralamanin her seferinde ayni (kararli) cikmasi icin kullanici adina gore ikincil siralama.
             .OrderByDescending(r => r.WeeklyCardCount)
             .ThenBy(r => r.Username)

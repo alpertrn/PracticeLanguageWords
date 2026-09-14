@@ -44,6 +44,10 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
 
         builder.Property(u => u.CreatedAt).IsRequired();
 
+        // Nullable - varsayilan degere gerek yok, mevcut kullanicilar NULL ile gelir
+        // ("hiç görülmedi" anlamina gelir, lider tablosuna zaten girmezler).
+        builder.Property(u => u.LastSeenAt);
+
         builder.HasIndex(u => u.Username).IsUnique();
 
         builder.HasOne(u => u.UserStreak)

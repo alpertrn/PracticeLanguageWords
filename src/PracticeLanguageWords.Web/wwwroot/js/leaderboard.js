@@ -6,8 +6,9 @@
 
     const showAllBtn = document.getElementById('leaderboardShowAll');
     const fullTable = document.getElementById('leaderboardFull');
+    const fullBody = document.getElementById('leaderboardFullBody');
 
-    if (!showAllBtn || !fullTable) {
+    if (!showAllBtn || !fullTable || !fullBody) {
         return;
     }
 
@@ -38,7 +39,7 @@
                     renderRows(data.entries || []);
                     loaded = true;
                 } catch (error) {
-                    fullTable.innerHTML = '<tbody><tr><td class="empty-state">' + escapeHtml(error.message) + '</td></tr></tbody>';
+                    fullBody.innerHTML = '<tr><td class="empty-state" colspan="4">' + escapeHtml(error.message) + '</td></tr>';
                     loaded = true;
                 } finally {
                     showAllBtn.disabled = false;
@@ -62,7 +63,7 @@
 
     function renderRows(entries) {
         if (entries.length === 0) {
-            fullTable.innerHTML = '<tbody><tr><td class="empty-state">Bu hafta henüz kimse kart çözmedi.</td></tr></tbody>';
+            fullBody.innerHTML = '<tr><td class="empty-state" colspan="4">Bu hafta henüz kimse kart çözmedi.</td></tr>';
             return;
         }
 
@@ -72,10 +73,11 @@
                 '<td class="leaderboard-rank">' + rankBadge(entry.rank) + '</td>' +
                 '<td class="leaderboard-name">' + escapeHtml(entry.displayName) + '</td>' +
                 '<td class="leaderboard-score">' + entry.weeklyCardCount + ' kart</td>' +
+                '<td class="leaderboard-lastseen">' + escapeHtml(entry.lastSeen) + '</td>' +
                 '</tr>';
         }).join('');
 
-        fullTable.innerHTML = '<tbody>' + rowsHtml + '</tbody>';
+        fullBody.innerHTML = rowsHtml;
     }
 
     function escapeHtml(text) {

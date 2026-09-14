@@ -18,6 +18,12 @@ public class User
     public UserRole Role { get; set; } = UserRole.User;
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
+    // Lider tablosundaki "Son görülme" sutunu icin: kullanici bir kart uzerinde islem
+    // yaptiginda (kategori pratiginde Kolay/Orta/Hiç Bilmiyorum ya da quiz cevabi) guncellenir
+    // - bkz. StreakService.RegisterActivityAsync. UTC olarak tutulur (DateOnly degil, çünkü
+    // "1sa. önce" gibi saat hassasiyetli bir gösterim gerekiyor).
+    public DateTime? LastSeenAt { get; set; }
+
     public UserStreak? UserStreak { get; set; }
     public ICollection<UserWordProgress> WordProgresses { get; set; } = new List<UserWordProgress>();
     public ICollection<UserStreakLog> StreakLogs { get; set; } = new List<UserStreakLog>();

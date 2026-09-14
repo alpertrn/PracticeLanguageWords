@@ -53,7 +53,9 @@ public class LeaderboardService : ILeaderboardService
                 ? row.Username
                 : $"{row.FirstName} {row.LastName}".Trim();
 
-            ranked.Add(new LeaderboardEntryDto(i + 1, displayName, row.WeeklyCardCount, row.UserId == currentUserId));
+            var lastSeen = RelativeTimeFormatter.ToShortTurkish(row.LastSeenAtUtc);
+
+            ranked.Add(new LeaderboardEntryDto(i + 1, displayName, row.WeeklyCardCount, lastSeen, row.UserId == currentUserId));
         }
 
         return ranked;

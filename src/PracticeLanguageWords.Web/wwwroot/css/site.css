@@ -346,6 +346,23 @@ a { color: var(--color-primary); }
 
 .leaderboard-table tr:last-child td { border-bottom: none; }
 
+.leaderboard-table th {
+    font-size: .68rem;
+    font-weight: 600;
+    color: var(--color-text-soft);
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    text-align: left;
+    padding: 0 .3rem .4rem;
+}
+
+/* .leaderboard-table th'nin genel text-align:left kurali, ayni siniftaki td icin
+   tanimli text-align:right'i (dusuk ozguculuk) ezmesin diye burada tekrar belirtiyoruz. */
+.leaderboard-table th.leaderboard-score,
+.leaderboard-table th.leaderboard-lastseen {
+    text-align: right;
+}
+
 .leaderboard-rank {
     width: 2.6rem;
     font-weight: 700;
@@ -359,6 +376,15 @@ a { color: var(--color-primary); }
     text-align: right;
     color: var(--color-text-soft);
     white-space: nowrap;
+}
+
+.leaderboard-lastseen {
+    width: 3.4rem;
+    text-align: right;
+    color: var(--color-text-soft);
+    font-size: .78rem;
+    white-space: nowrap;
+    padding-left: .5rem !important;
 }
 
 .leaderboard-table tr.is-me {

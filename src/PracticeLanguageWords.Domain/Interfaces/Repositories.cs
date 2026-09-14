@@ -13,6 +13,12 @@ public interface IUserRepository
     Task<User?> GetByUsernameAsync(string username, CancellationToken ct = default);
     Task<bool> UsernameExistsAsync(string username, CancellationToken ct = default);
     void Add(User user);
+
+    /// <summary>
+    /// "Son görülme" zaman damgasini gunceller (tek SQL UPDATE - entity yuklemeye gerek yok,
+    /// bkz. IUserStreakLogRepository.IncrementCardCountAsync - ayni desen).
+    /// </summary>
+    Task TouchLastSeenAsync(int userId, DateTime utcNow, CancellationToken ct = default);
 }
 
 public interface ILanguageRepository
