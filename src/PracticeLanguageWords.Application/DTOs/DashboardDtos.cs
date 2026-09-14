@@ -2,7 +2,8 @@ namespace PracticeLanguageWords.Application.DTOs;
 
 public record StreakInfoDto(int CurrentStreak, int LongestStreak);
 
-public record DayStatusDto(DateOnly Date, bool Active);
+/// <summary>IsFuture: bu hafta icinde ama henuz gelmemis gun (bugunden sonrasi) - "kacirilmis" sayilmaz.</summary>
+public record DayStatusDto(DateOnly Date, bool Active, bool IsFuture);
 
 public record CategorySummaryDto(int Id, string Name, int WordCount);
 

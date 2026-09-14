@@ -295,6 +295,20 @@ a { color: var(--color-primary); }
     background: var(--color-primary-soft);
 }
 
+/* Kacirilan (gecmis, aktivitesiz) gun: bos gorunmesin diye icinde bos bir daire var. */
+.streak-dot.missed {
+    color: var(--color-text-soft);
+    border-color: var(--color-border);
+}
+
+/* Henuz gelmemis gun (bu hafta icinde ama bugunden sonrasi): daha soluk, kesikli cizgi -
+   "kacirildi" ile karismasin diye ayri bir stil. */
+.streak-dot.future {
+    color: var(--color-text-soft);
+    border-style: dashed;
+    opacity: .55;
+}
+
 .streak-day-label { font-size: .7rem; color: var(--color-text-soft); }
 
 /* ---------- Haftalik lider tablosu ---------- */
@@ -746,7 +760,7 @@ a { color: var(--color-primary); }
     padding: 1rem;
 }
 
-.example-item .link-button { display: block; margin-top: .5rem; }
+.example-item .link-button { display: block; margin-top: .5rem; width: 100%; text-align: center; }
 
 .example-row {
     display: flex;

@@ -22,17 +22,33 @@ public class StreakService : IStreakService
         return new StreakInfoDto(streak?.CurrentStreak ?? 0, streak?.LongestStreak ?? 0);
     }
 
+    /// <summary>
+    /// Bu haftanin (Pazartesi-Pazar, Türkiye saati) 7 günü - sirasi HER ZAMAN sabittir
+    /// (Pzt, Sal, Çar, Per, Cum, Cmt, Paz). Eskiden "bugünden geriye son 7 gün" seklinde
+    /// kayan bir pencereydi; bu durumda gün her gece bir sonraki hücreye kaydigi icin
+    /// haftanin basi (Pazartesi) her gün farkli bir sutuna dusuyordu. Artik gunler yerinde
+    /// sabit kaliyor, sadece o günün durumu (yapildi / henuz gelmedi / kacirildi) degisiyor.
+    /// </summary>
     public async Task<IReadOnlyList<DayStatusDto>> GetLast7DaysAsync(int userId, CancellationToken ct = default)
     {
         var today = TurkeyClock.Today();
-        var logs = await _uow.StreakLogs.GetLastNDaysAsync(userId, 7, today, ct);
+
+        // Pazartesi = 0 ... Pazar = 6 (DayOfWeek'te Pazar=0 oldugu icin +6 % 7 ile kaydiriyoruz).
+        var daysSinceMonday = ((int)today.DayOfWeek + 6) % 7;
+        var weekStart = today.AddDays(-daysSinceMonday);
+
+        // Sadece Pazartesi'den bugune kadar olan araligin loglarina ihtiyac var;
+        // gelecek gunlerin hicbir sekilde aktivitesi olamaz.
+        var logs = await _uow.StreakLogs.GetLastNDaysAsync(userId, daysSinceMonday + 1, today, ct);
         var activeDates = logs.Select(l => l.ActivityDate).ToHashSet();
 
         var days = new List<DayStatusDto>();
-        for (var i = 6; i >= 0; i--)
+        for (var i = 0; i < 7; i++)
         {
-            var date = today.AddDays(-i);
-            days.Add(new DayStatusDto(date, activeDates.Contains(date)));
+            var date = weekStart.AddDays(i);
+            var isFuture = date > today;
+            var active = !isFuture && activeDates.Contains(date);
+            days.Add(new DayStatusDto(date, active, isFuture));
         }
 
         return days;

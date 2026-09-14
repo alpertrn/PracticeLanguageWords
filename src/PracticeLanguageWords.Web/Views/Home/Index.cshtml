@@ -27,8 +27,8 @@
         @foreach (var day in Model.Last7Days)
         {
             <div class="streak-day">
-                <div class="streak-dot @(day.Active ? "active" : "")" title="@day.Date.ToString("dd.MM.yyyy")">
-                    @(day.Active ? "🔥" : "")
+                <div class="streak-dot @(day.Active ? "active" : day.IsFuture ? "future" : "missed")" title="@day.Date.ToString("dd.MM.yyyy")">
+                    @(day.Active ? "🔥" : day.IsFuture ? "·" : "○")
                 </div>
                 <div class="streak-day-label">@dayNames[(int)day.Date.DayOfWeek]</div>
             </div>
