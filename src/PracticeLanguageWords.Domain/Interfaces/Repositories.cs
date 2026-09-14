@@ -19,6 +19,23 @@ public interface IUserRepository
     /// bkz. IUserStreakLogRepository.IncrementCardCountAsync - ayni desen).
     /// </summary>
     Task TouchLastSeenAsync(int userId, DateTime utcNow, CancellationToken ct = default);
+
+    /// <summary>
+    /// En az bir push abonelig (PushSubscription) olan kullanicilari, gunluk bildirim
+    /// kararini verebilmek icin UserStreak ve PushSubscriptions dahil olacak sekilde doner.
+    /// </summary>
+    Task<List<User>> GetNotificationCandidatesAsync(CancellationToken ct = default);
+}
+
+public interface IPushSubscriptionRepository
+{
+    /// <summary>
+    /// Endpoint tarayici+cihaz bazinda tekildir (unique index). Ayni tarayici tekrar abone
+    /// olursa (ornegin sayfa yenilenince) mevcut satir guncellenir, kopya olusturulmaz.
+    /// </summary>
+    Task<PushSubscription?> GetByEndpointAsync(string endpoint, CancellationToken ct = default);
+    void Add(PushSubscription subscription);
+    void Remove(PushSubscription subscription);
 }
 
 public interface ILanguageRepository

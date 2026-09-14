@@ -48,6 +48,9 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
         // ("hiç görülmedi" anlamina gelir, lider tablosuna zaten girmezler).
         builder.Property(u => u.LastSeenAt);
 
+        // Nullable - bildirim hic gonderilmemis kullanicilar icin NULL kalir.
+        builder.Property(u => u.LastNotificationDate).HasColumnType("date");
+
         builder.HasIndex(u => u.Username).IsUnique();
 
         builder.HasOne(u => u.UserStreak)
@@ -87,6 +90,31 @@ public class UserStreakLogConfiguration : IEntityTypeConfiguration<UserStreakLog
         builder.HasOne(l => l.User)
             .WithMany(u => u.StreakLogs)
             .HasForeignKey(l => l.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
+    }
+}
+
+public class PushSubscriptionConfiguration : IEntityTypeConfiguration<PushSubscription>
+{
+    public void Configure(EntityTypeBuilder<PushSubscription> builder)
+    {
+        builder.ToTable("PushSubscriptions");
+        builder.HasKey(s => s.Id);
+
+        // 440: SQL Server unique index'lerde nvarchar anahtar 900 byte ile sinirli (440*2=880 byte).
+        // Gercek push endpoint URL'leri (FCM/Mozilla/Windows) pratikte 150-250 karakter civarindadir.
+        builder.Property(s => s.Endpoint).IsRequired().HasMaxLength(440);
+        builder.Property(s => s.P256dh).IsRequired().HasMaxLength(200);
+        builder.Property(s => s.Auth).IsRequired().HasMaxLength(200);
+        builder.Property(s => s.CreatedAt).IsRequired();
+
+        // Ayni tarayici/cihaz birden fazla kez abone olursa (sayfa yenilenmesi, farkli sekme)
+        // kopya satir olusmasin diye endpoint tekildir.
+        builder.HasIndex(s => s.Endpoint).IsUnique();
+
+        builder.HasOne(s => s.User)
+            .WithMany(u => u.PushSubscriptions)
+            .HasForeignKey(s => s.UserId)
             .OnDelete(DeleteBehavior.Cascade);
     }
 }

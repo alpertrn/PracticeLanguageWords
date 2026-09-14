@@ -108,9 +108,13 @@ app.UseMiddleware<ApiExceptionMiddleware>();
 
 app.MapControllers();
 
-// Kok adres kullaniciyi varsayilan dilin ana sayfasina yonlendirir (/en gibi).
-app.MapGet("/", async (ILanguageService languageService, CancellationToken ct) =>
+app.MapGet("/", async (HttpContext httpContext, ILanguageService languageService, CancellationToken ct) =>
 {
+    if (httpContext.User.Identity?.IsAuthenticated != true)
+    {
+        return Results.Redirect("/login");
+    }
+
     var language = await languageService.GetDefaultAsync(ct);
     return Results.Redirect(language is null ? "/hata/404" : $"/{language.Code}");
 });

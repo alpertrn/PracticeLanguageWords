@@ -24,7 +24,13 @@ public class User
     // "1sa. önce" gibi saat hassasiyetli bir gösterim gerekiyor).
     public DateTime? LastSeenAt { get; set; }
 
+    // Push bildirimleri: en son ne zaman bildirim gonderildigini tutar (Turkiye takvim gunu).
+    // "Az aktif" kullanicilara 3+ gunde bir gonderme sinirini bununla uyguluyoruz - bkz.
+    // NotificationService.SendDailyNotificationsAsync.
+    public DateOnly? LastNotificationDate { get; set; }
+
     public UserStreak? UserStreak { get; set; }
     public ICollection<UserWordProgress> WordProgresses { get; set; } = new List<UserWordProgress>();
     public ICollection<UserStreakLog> StreakLogs { get; set; } = new List<UserStreakLog>();
+    public ICollection<PushSubscription> PushSubscriptions { get; set; } = new List<PushSubscription>();
 }

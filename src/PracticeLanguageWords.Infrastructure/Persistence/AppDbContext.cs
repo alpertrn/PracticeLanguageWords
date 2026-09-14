@@ -17,6 +17,7 @@ public class AppDbContext : DbContext
     public DbSet<UserWordProgress> UserWordProgresses => Set<UserWordProgress>();
     public DbSet<UserStreak> UserStreaks => Set<UserStreak>();
     public DbSet<UserStreakLog> UserStreakLogs => Set<UserStreakLog>();
+    public DbSet<PushSubscription> PushSubscriptions => Set<PushSubscription>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

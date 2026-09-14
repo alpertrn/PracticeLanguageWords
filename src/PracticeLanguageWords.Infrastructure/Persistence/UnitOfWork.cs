@@ -16,6 +16,7 @@ public class UnitOfWork : IUnitOfWork
     private IUserWordProgressRepository? _wordProgresses;
     private IUserStreakRepository? _streaks;
     private IUserStreakLogRepository? _streakLogs;
+    private IPushSubscriptionRepository? _pushSubscriptions;
 
     public UnitOfWork(AppDbContext context) => _context = context;
 
@@ -27,6 +28,7 @@ public class UnitOfWork : IUnitOfWork
     public IUserWordProgressRepository WordProgresses => _wordProgresses ??= new UserWordProgressRepository(_context);
     public IUserStreakRepository Streaks => _streaks ??= new UserStreakRepository(_context);
     public IUserStreakLogRepository StreakLogs => _streakLogs ??= new UserStreakLogRepository(_context);
+    public IPushSubscriptionRepository PushSubscriptions => _pushSubscriptions ??= new PushSubscriptionRepository(_context);
 
     public Task<int> SaveChangesAsync(CancellationToken ct = default) => _context.SaveChangesAsync(ct);
 

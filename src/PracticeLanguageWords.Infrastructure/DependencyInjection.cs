@@ -5,6 +5,7 @@ using PracticeLanguageWords.Application.Interfaces;
 using PracticeLanguageWords.Application.Services;
 using PracticeLanguageWords.Domain.Interfaces;
 using PracticeLanguageWords.Infrastructure.Import;
+using PracticeLanguageWords.Infrastructure.Notifications;
 using PracticeLanguageWords.Infrastructure.Persistence;
 using PracticeLanguageWords.Infrastructure.Security;
 
@@ -43,10 +44,15 @@ public static class DependencyInjection
         services.AddScoped<ICategoryGroupAdminService, CategoryGroupAdminService>();
         services.AddScoped<ICategoryAdminService, CategoryAdminService>();
         services.AddScoped<IWordAdminService, WordAdminService>();
+        services.AddScoped<INotificationService, NotificationService>();
 
         // Altyapi servisleri
         services.AddSingleton<IPasswordHasher, BCryptPasswordHasher>();
         services.AddSingleton<IAnswerEvaluator, AnswerEvaluator>();
+
+        // Push bildirimleri (Web Push / VAPID) - bkz. appsettings "WebPush" bolumu.
+        services.AddSingleton<IPushSender, WebPushSender>();
+        services.AddHostedService<DailyNotificationBackgroundService>();
 
         // Seviye 1 telaffuz degerlendirmesi: tarayicidan gelen metni karsilastirir (ucretsiz, anahtarsiz).
         // Fonem bazli puanlamaya gecilirse burada baska bir implementasyon kaydedilir.

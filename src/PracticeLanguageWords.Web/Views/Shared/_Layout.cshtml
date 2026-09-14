@@ -1,6 +1,8 @@
+@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
 @{
     var isAuthenticated = User.Identity?.IsAuthenticated == true;
     var isAdmin = User.IsInRole("Admin");
+    var vapidPublicKey = Configuration["WebPush:VapidPublicKey"];
 }
 <!DOCTYPE html>
 <html lang="tr">
@@ -10,6 +12,10 @@
     <meta name="theme-color" content="#4f46e5" />
     <title>@ViewData["Title"] - PracticeLanguageWords</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    @if (isAuthenticated && !string.IsNullOrWhiteSpace(vapidPublicKey))
+    {
+        <meta name="vapid-public-key" content="@vapidPublicKey" />
+    }
 </head>
 <body>
     @if (isAuthenticated)
@@ -54,6 +60,10 @@
 
     <script src="~/js/confetti.js" asp-append-version="true"></script>
     <script src="~/js/speech.js" asp-append-version="true"></script>
+    @if (isAuthenticated && !string.IsNullOrWhiteSpace(vapidPublicKey))
+    {
+        <script src="~/js/notifications.js" asp-append-version="true"></script>
+    }
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

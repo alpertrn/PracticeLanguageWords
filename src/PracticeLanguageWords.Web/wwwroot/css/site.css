@@ -295,18 +295,21 @@ a { color: var(--color-primary); }
     background: var(--color-primary-soft);
 }
 
-/* Kacirilan (gecmis, aktivitesiz) gun: bos gorunmesin diye icinde bos bir daire var. */
+/* Kacirilan (gecmis, aktivitesiz) gun: bos bir halka yerine ayni alev ikonunun soluk/gri
+   hali gosterilir - "aktif gunun sonmus hali" gibi okunsun diye, rastgele bir sekil yerine
+   tema ile tutarli bir gorsel tercih edildi. */
 .streak-dot.missed {
-    color: var(--color-text-soft);
     border-color: var(--color-border);
+    filter: grayscale(1);
+    opacity: .32;
 }
 
-/* Henuz gelmemis gun (bu hafta icinde ama bugunden sonrasi): daha soluk, kesikli cizgi -
-   "kacirildi" ile karismasin diye ayri bir stil. */
+/* Henuz gelmemis gun (bu hafta icinde ama bugunden sonrasi): "kacirildi" ile karismasin diye
+   aynı gri alevin daha da soluk + kesikli cerceveli hali. */
 .streak-dot.future {
-    color: var(--color-text-soft);
     border-style: dashed;
-    opacity: .55;
+    filter: grayscale(1);
+    opacity: .16;
 }
 
 .streak-day-label { font-size: .7rem; color: var(--color-text-soft); }

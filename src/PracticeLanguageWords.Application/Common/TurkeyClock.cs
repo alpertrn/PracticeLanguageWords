@@ -29,4 +29,11 @@ public static class TurkeyClock
         var nowLocal = TimeZoneInfo.ConvertTimeFromUtc(nowUtc, TimeZone);
         return DateOnly.FromDateTime(nowLocal);
     }
+
+    /// <summary>Günlük bildirim zamanlamasi (saat kontrolu) icin - Today()'den farkli olarak saat bilgisini de tasir.</summary>
+    public static DateTime Now()
+    {
+        var nowUtc = DateTime.UtcNow;
+        return TimeZoneInfo.ConvertTimeFromUtc(nowUtc, TimeZone);
+    }
 }

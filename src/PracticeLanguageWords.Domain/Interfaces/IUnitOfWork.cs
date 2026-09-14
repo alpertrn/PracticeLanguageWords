@@ -13,6 +13,7 @@ public interface IUnitOfWork
     IUserWordProgressRepository WordProgresses { get; }
     IUserStreakRepository Streaks { get; }
     IUserStreakLogRepository StreakLogs { get; }
+    IPushSubscriptionRepository PushSubscriptions { get; }
 
     Task<int> SaveChangesAsync(CancellationToken ct = default);
 

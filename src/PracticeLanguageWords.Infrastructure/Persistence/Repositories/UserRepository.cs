@@ -29,6 +29,27 @@ public class UserRepository : IUserRepository
             .Where(u => u.Id == userId)
             .ExecuteUpdateAsync(setters => setters.SetProperty(u => u.LastSeenAt, utcNow), ct);
     }
+
+    public Task<List<User>> GetNotificationCandidatesAsync(CancellationToken ct = default) =>
+        _context.Users
+            .Where(u => u.PushSubscriptions.Any())
+            .Include(u => u.UserStreak)
+            .Include(u => u.PushSubscriptions)
+            .ToListAsync(ct);
+}
+
+public class PushSubscriptionRepository : IPushSubscriptionRepository
+{
+    private readonly AppDbContext _context;
+
+    public PushSubscriptionRepository(AppDbContext context) => _context = context;
+
+    public Task<PushSubscription?> GetByEndpointAsync(string endpoint, CancellationToken ct = default) =>
+        _context.PushSubscriptions.FirstOrDefaultAsync(s => s.Endpoint == endpoint, ct);
+
+    public void Add(PushSubscription subscription) => _context.PushSubscriptions.Add(subscription);
+
+    public void Remove(PushSubscription subscription) => _context.PushSubscriptions.Remove(subscription);
 }
 
 public class UserStreakRepository : IUserStreakRepository
@@ -103,9 +124,13 @@ public class UserStreakLogRepository : IUserStreakLogRepository
             .GroupBy(l => l.UserId)
             .Select(g => new { UserId = g.Key, Total = g.Sum(x => x.CardCount) })
             .Join(_context.Users, x => x.UserId, u => u.Id, (x, u) =>
-                new LeaderboardRow(u.Id, u.Username, u.FirstName, u.LastName, x.Total, u.LastSeenAt))
+                new { u.Id, u.Username, u.FirstName, u.LastName, x.Total, u.LastSeenAt })
             // Esit puanda siralamanin her seferinde ayni (kararli) cikmasi icin kullanici adina gore ikincil siralama.
-            .OrderByDescending(r => r.WeeklyCardCount)
+            // Siralama, LeaderboardRow (record) uzerinden degil dogrudan anonim tip alanlari
+            // uzerinden yapilir - EF Core, kayit (record) constructor'i uzerinden property
+            // erisimini SQL'e cevirimeyebiliyor (bkz. "could not be translated" hatasi).
+            .OrderByDescending(r => r.Total)
             .ThenBy(r => r.Username)
+            .Select(r => new LeaderboardRow(r.Id, r.Username, r.FirstName, r.LastName, r.Total, r.LastSeenAt))
             .ToListAsync(ct);
 }
